@@ -1,15 +1,11 @@
-import React, { ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-class PageTransition extends React.Component {
-   
-  render() {
-    const { children }: { children: ReactNode } = this.props;
-
+function PageTransition(props:any) {
+  const { children } = props;
     return (
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence >
         <motion.div
-          key={children.key}
+          key={1}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -19,6 +15,6 @@ class PageTransition extends React.Component {
       </AnimatePresence>
     );
   }
-}
+
 
 export default PageTransition;

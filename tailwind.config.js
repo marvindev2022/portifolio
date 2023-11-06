@@ -3,9 +3,7 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      backgroundImage: {
-        footer: "url('/src/assets/footer/background.svg')",
-      },
+      
       screens: {
         sm: "640px",
         md: "768px",
@@ -26,8 +24,8 @@ export default {
           '0px 0px 0px 0px rgba(0, 0, 0, 0.10), 0px 4px 8px 0px rgba(0, 0, 0, 0.10), 0px 15px 15px 0px rgba(0, 0, 0, 0.09), 0px 33px 20px 0px rgba(0, 0, 0, 0.05), 0px 59px 24px 0px rgba(0, 0, 0, 0.01), 0px 92px 26px 0px rgba(0, 0, 0, 0.00);',
       },
       fontFamily: {
-        main: ['Abril Fatface'],
-        special: ['Poiret One'],
+        main: ['Lobster'],
+        special: ['Fira Sans'],
         secondary: ['Inter'],
       },
     },

@@ -1,12 +1,9 @@
-import { Component } from "react";
 
-export default class Contact extends Component {
-    render() {
+export default function Articles(){
         return (
         <section className="w-full h-full flex flex-col justify-center items-center">
-            <h1 className="text-5xl">Contact</h1>
+            <h1 className="text-5xl">Articles</h1>
             <p className="text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas.</p>
         </section>
         );
-    }
     }
