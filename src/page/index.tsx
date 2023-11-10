@@ -2,7 +2,7 @@ import { useState } from "react";
 import Home from "./../components/Home";
 import About from "./../components/About";
 import Projects from "./../components/Projects";
-import Articles from "../components/Articles";
+import Articles from "../components/APIs";
 import Header from "./../components/Header";
 import PageTransition from "../animation/PageTransition";
 

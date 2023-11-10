@@ -1,8 +1,8 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
 
 * {
   box-sizing: border-box;
@@ -10,14 +10,13 @@
   margin: 0;
   font-family: Fira sans, sans-serif;
 }
-.dark{
-  background-color: #000007dd;
+.dark {
+  background-color: #1b1b1b;
   color: #fff;
 }
-strong{
+strong {
   font-family: Lobster, cursive;
   font-weight: 400;
-
 }
 b {
   font-family: Fira sans;

@@ -1,7 +1,6 @@
 import Nav from "./Nav";
 
 export default function Header({ selectedPage, setSelectedPage }: any) {
-
   const colorClasses = [
     "bg-black",
     "bg-red-500",
@@ -9,12 +8,14 @@ export default function Header({ selectedPage, setSelectedPage }: any) {
     "bg-green-500",
     "bg-orange-500",
     "bg-purple-500",
+    "bg-pink-500",
+    "bg-w-500",
+    "bg-indigo-500",
   ];
 
   let colorIndex = 0;
 
   const handleMouseEnter = () => {
-
     const colorChangeInterval = setInterval(() => {
       colorIndex = (colorIndex + 1) % colorClasses.length;
       document
@@ -39,29 +40,31 @@ export default function Header({ selectedPage, setSelectedPage }: any) {
   };
 
   return (
-    <header className="w-full h-24 py-8 px-32 flex justify-between items-center ">
+    <header className="w-full h-24 xl:py-8 xl:px-32 sm:p-2 flex justify-between items-center mb:p-2 ">
       <nav className="flex justify-between items-center">
         <ul className="flex justify-between items-center">
           <li
             onClick={() => setSelectedPage("home")}
-            className={`mx-5 ${
+            className={`xl:mx-5 sm:mx-2 mx-1 ${
               selectedPage === "home" && "underline"
             } hover:underline`}
           >
             Home
           </li>
-          <li
-            onClick={() => setSelectedPage("about")}
-            className={`mx-5 ${
-              selectedPage === "about" && "underline"
-            } hover:underline`}
-          >
-            About
-          </li>
+          <a href="#about">
+            <li
+              onClick={() => setSelectedPage("about")}
+              className={`xl:mx-5 sm:mx-2 mx-1 ${
+                selectedPage === "about" && "underline"
+              } hover:underline`}
+            >
+              About
+            </li>
+          </a>
 
           <li
             onClick={() => setSelectedPage("projects")}
-            className={`mx-5 ${
+            className={`xl:mx-5 sm:mx-2 mx-1 ${
               selectedPage === "projects" && "underline"
             } hover:underline`}
           >
@@ -69,7 +72,7 @@ export default function Header({ selectedPage, setSelectedPage }: any) {
           </li>
           <li
             onClick={() => setSelectedPage("articles")}
-            className={`mx-5 ${
+            className={`xl:mx-5 sm:mx-2 mx-1 ${
               selectedPage === "articles" && "underline"
             } hover:underline`}
           >
@@ -77,15 +80,15 @@ export default function Header({ selectedPage, setSelectedPage }: any) {
           </li>
         </ul>
       </nav>
-      <div
+      <span
         id="color-change-div"
-        className={`w-16 h-16 mt-2 flex justify-center items-center rounded-[50%] border-2 bg-black text-bold
-        } border-white hover:${colorClasses} text-center text-lg`}
+        className={`w-16 h-16 mt-2 flex justify-center items-center rounded-[50%] border-2 bg-black font-[900] text-[1rem]
+        } border-white hover:${colorClasses} text-[1.3rem] `}
         onMouseEnter={handleMouseEnter}
       >
         MR
-      </div>
-      <Nav/>
+      </span>
+      <Nav />
     </header>
   );
 }
