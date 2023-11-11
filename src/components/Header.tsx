@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Nav from "./Nav";
 
 const colorClasses = [
@@ -15,7 +15,6 @@ const colorClasses = [
 
 const Header = ({ selectedPage, setSelectedPage }: any) => {
   const [colorIndex, setColorIndex] = useState(0);
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleMouseEnter = () => {
     const colorChangeInterval = setInterval(() => {
@@ -43,7 +42,7 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
     if (colorChangeDiv) {
       colorChangeDiv.classList.replace(
         colorClasses[
-        (colorIndex - 1 + colorClasses.length) % colorClasses.length
+          (colorIndex - 1 + colorClasses.length) % colorClasses.length
         ],
         colorClasses[colorIndex]
       );
@@ -52,15 +51,13 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
 
   const toggleMobileMenu = () => {
     const dialog = document.querySelector("dialog");
-      dialog?.showModal();
-
+    dialog?.showModal();
   };
 
   const handlePageClick = (page: string) => {
     setSelectedPage(page);
     const dialog = document.querySelector("dialog");
     dialog?.close();
-
   };
 
   const renderNavLinks = () => {
@@ -68,8 +65,9 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
       <li
         key={page}
         onClick={() => handlePageClick(page)}
-        className={`xl:mx-5 sm:mx-2 mx-1 ${selectedPage === page && "underline"
-          } hover:underline`}
+        className={`xl:mx-5 sm:mx-2 mx-1 ${
+          selectedPage === page && "underline"
+        } hover:underline`}
       >
         {page.charAt(0).toUpperCase() + page.slice(1)}
       </li>
@@ -93,14 +91,8 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
         </div>
       </dialog>
 
-      <nav
-        className={`flex justify-between items-center ${isMobileMenuOpen && "flex-col"
-          }`}
-      >
-        <ul
-          className={`hidden sm:flex justify-between items-center ${isMobileMenuOpen && "flex-col"
-            }`}
-        >
+      <nav className={`flex justify-between items-center  `}>
+        <ul className={`hidden sm:flex justify-between items-center  `}>
           {renderNavLinks()}
         </ul>
       </nav>
