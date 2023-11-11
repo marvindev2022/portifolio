@@ -4,10 +4,9 @@ import background from "./../assets/background.png";
 import icon from "./../assets/icon.svg";
 import svg from "./../assets/animado.png";
 import Footer from "./Footer";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Home() {
-  const navigate = useNavigate()
   return (
     <>
       <section className="w-full min-h-[90vh] items-center justify-between flex relative px-32 sm:flex-col xl:flex-row">
