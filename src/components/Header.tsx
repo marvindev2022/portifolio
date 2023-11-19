@@ -51,7 +51,13 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
 
   const toggleMobileMenu = () => {
     const dialog = document.querySelector("dialog");
-    dialog?.showModal();
+    const open = dialog?.open;
+    console.log(open);
+    if (!open) {
+      dialog?.showModal();
+    } else {
+      dialog?.close();
+    }
   };
 
   const handlePageClick = (page: string) => {
@@ -65,9 +71,9 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
       <li
         key={page}
         onClick={() => handlePageClick(page)}
-        className={`xl:mx-5 sm:mx-2 mx-1 ${
+        className={`cursor-pointer xl:mx-5 md:mx-2 mx-1 ${
           selectedPage === page && "underline"
-        } hover:underline`}
+        } hover:underline `}
       >
         {page.charAt(0).toUpperCase() + page.slice(1)}
       </li>
@@ -75,15 +81,24 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
   };
 
   return (
-    <header className="w-full h-24 xl:py-8 xl:px-32 sm:p-2 flex justify-between items-center mb:p-2 z-10">
-      <div className="block sm:hidden" onClick={toggleMobileMenu}>
+    <header className="w-full h-24 px-14 gap-14 py-5 xl:py-8 xl:px-32 lg:p-2 flex justify-around  md:justify-between items-center mb:p-2 z-10">
+      <span
+        className="block lg:hidden text-[2rem] cursor-pointer"
+        onClick={toggleMobileMenu}
+      >
         ☰
-      </div>
+      </span>
 
-      <dialog className="top-0 left-0 min-w-full min-h-full sm:hidden bg-black bg-opacity-0 z-20 relative">
-        <div className="w-full min-h-screen flex justify-center items-center bg-black bg-opacity-0 ">
-          <div className="bg-white w-[18.75rem] h-[500px] flex flex-col justify-center items-center rounded-xl ">
-            <ul className="flex justify-between items-center flex-col">
+      <dialog className="top-0 left-0 min-w-full min-h-full lg:hidden bg-black bg-opacity-0 z-20 relative">
+        <div className="w-full min-h-full flex justify-center items-center bg-black bg-opacity-0 ">
+          <div className="bg-white w-[18.75rem] h-[31.25rem] flex flex-col justify-center items-center rounded-xl relative ">
+            <strong
+              onClick={toggleMobileMenu}
+              className="text-black font-extrabold font-[main] absolute left-5 top-5 text-[1.5rem] cursor-pointer"
+            >
+              {"X"}
+            </strong>
+            <ul className="flex h-1/2 justify-center items-center flex-col gap-5">
               {renderNavLinks()}
             </ul>
             <Nav />
@@ -92,7 +107,7 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
       </dialog>
 
       <nav className={`flex justify-between items-center  `}>
-        <ul className={`hidden sm:flex justify-between items-center  `}>
+        <ul className={`hidden lg:flex justify-between items-center  `}>
           {renderNavLinks()}
         </ul>
       </nav>
@@ -105,7 +120,7 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
         MR
       </span>
 
-      <span className="hidden sm:block">
+      <span className="hidden lg:block">
         <Nav />
       </span>
     </header>
