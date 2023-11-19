@@ -22,3 +22,7 @@ b {
   font-family: Fira sans;
   font-weight: 400;
 }
+
+body{
+  overflow-x: hidden;
+}

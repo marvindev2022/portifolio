@@ -19,7 +19,7 @@ function App() {
     setSelectedPage(page);
   };
   return (
-    <main className="w-screen h-screen flex flex-col ">
+    <main className="w-full h-full flex flex-col ">
       <Header
         selectedPage={selectedPage}
         setSelectedPage={handleSetSelectedPage}
