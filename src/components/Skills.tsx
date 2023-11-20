@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { skills } from "../data/skills";
 
 export default function Skills() {
   const [inSkillScroll, setInSkillScroll] = useState(false);
-
+  useEffect(()=>{
+    if(window.scrollY >= 1058){
+      setInSkillScroll(true)
+    }else{
+      setInSkillScroll(false)
+    }
+  },[])
   return (
     <section
       id="skills"
