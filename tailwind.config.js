@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       screens: {
-        sm: "640px",
-        md: "768px",
-        lg: "1024px",
-        xl: "1280px",
+        sm: "40rem",
+        md: "48rem",
+        lg: "64rem",
+        xl: "80rem",
       },
       colors: {
         secondary: "#231e54",
@@ -18,9 +18,9 @@ export default {
       },
       boxShadow: {
         around:
-          "0 59.6602px 184.454px #00000015, 0 24.9246px 77.0605px #0000001e, 0 13.3259px 41.2002px #00000025, 0 7.47038px 23.0965px #0000002c, 0 3.96746px 12.2664px #00000035, 0 1.65095px 5.10431px #0000004a;",
+          "0 3.7288rem 11.5284rem #00000015, 0 1.5578rem 4.8163rem #0000001e, 0 .8329rem 2.575rem #00000025, 0 .4669rem 1.4435rem #0000002c, 0 .248rem .7667rem #00000035, 0 .1032rem .319rem #0000004a;",
         modal:
-          "0px 0px 0px 0px rgba(0, 0, 0, 0.10), 0px 4px 8px 0px rgba(0, 0, 0, 0.10), 0px 15px 15px 0px rgba(0, 0, 0, 0.09), 0px 33px 20px 0px rgba(0, 0, 0, 0.05), 0px 59px 24px 0px rgba(0, 0, 0, 0.01), 0px 92px 26px 0px rgba(0, 0, 0, 0.00);",
+          "0rem 0rem 0rem 0rem rgba(0, 0, 0, 0.10), 0rem .25rem .5rem 0rem rgba(0, 0, 0, 0.10), 0rem .9375rem .9375rem 0rem rgba(0, 0, 0, 0.09), 0rem 2.0625rem 1.25rem 0rem rgba(0, 0, 0, 0.05), 0rem 3.6875rem 1.5rem 0rem rgba(0, 0, 0, 0.01), 0rem 5.75rem 1.625rem 0rem rgba(0, 0, 0, 0.00);",
       },
       fontFamily: {
         main: ["Lobster"],
@@ -30,15 +30,15 @@ export default {
     },
     extend: {
       "::-webkit-scrollbar": {
-        width: "5px",
+        width: ".3125rem",
       },
       "::-webkit-scrollbar-track": {
         background: "var(--blue-dark, #231E54)",
-        borderRadius: "10px",
+        borderRadius: ".625rem",
       },
       "::-webkit-scrollbar-thumb": {
         backgroundColor: "var(--blue-dark, #231E54)",
-        borderRadius: "10px",
+        borderRadius: ".625rem",
       },
       scrollbarWidth: "thin",
       scrollbarColor: "var(--blue-dark, #231E54) var(--blue-dark, #231E54)",
