@@ -9,6 +9,13 @@ export default {
         lg: "64rem",
         xl: "80rem",
       },
+      height: {
+        hsm: "20rem",
+        hmd: "24rem",
+        hlg: "32rem",
+        hxl: "40rem",
+      },
+
       colors: {
         secondary: "#231e54",
         primary: "#FBAD36",

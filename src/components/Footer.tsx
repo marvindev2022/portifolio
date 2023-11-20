@@ -1,6 +1,9 @@
+import HireMe from "./HireMe";
+
 export default function Footer() {
   return (
-    <footer className="w-[390px] md:w-full  flex items-center  border-t-2">
+    <footer className="w-[390px] md:w-full  flex items-center  border-t-2 relative">
+      <HireMe/>
       <span className="hidden sm:flex w-full sm:w-1/2  md:py-10 p-5 md:px-32 items-center relative">
         2023 © All Rights Reserved.
       </span>
