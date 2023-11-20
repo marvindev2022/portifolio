@@ -7,12 +7,12 @@ export default function About() {
       id="about"
       className="w-full min-h-full text-center xl:text-justify h-full md:flex md:flex-col  md:items-center pt-10 md:px-32"
     >
-      <h1 className="mx-auto  text-7xl font-extrabold mb-20 ">
+      <h1 className="mx-auto text-justify px-5 text-7xl font-extrabold mb-20 ">
         A paixão alimenta o propósito!
       </h1>
       <div className=" flex flex-col md:flex-row w-[400px] sm:w-full max-h-full gap-10 mb-10">
         <div className="flex flex-col px-5 text-gray-100  md:w-[36.5625rem] md:h-[36.5625rem] md:ml-[-2rem] md:mr-8">
-          <h2 className="w-[36.5625rem] text-start ml-[40%] sm:ml-0 md:text-justify text-2xl font-extrabold my-4">
+          <h2 className="w-[36.5625rem] text-start   md:text-justify text-2xl font-extrabold my-4">
             Biografia
           </h2>
           <p className="sm:w-[36.5625rem] text-justify font-medium text-xl">
