@@ -2,9 +2,9 @@ import { useState } from "react";
 import Home from "./../components/Home";
 import About from "./../components/About";
 import Projects from "./../components/Projects";
-import Articles from "../components/Articles";
 import Header from "./../components/Header";
 import PageTransition from "../animation/PageTransition";
+import Voluntary from "../components/Voluntary";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<string>("home");
@@ -12,7 +12,7 @@ function App() {
     home: <Home />,
     about: <About />,
     projects: <Projects />,
-    articles: <Articles />,
+    voluntary: <Voluntary />,
   };
 
   const handleSetSelectedPage = (page: string) => {

@@ -4,7 +4,6 @@ import svg from "./../assets/animado.png";
 
 
 export default function HireMe(){
-
     return(
         <Link
         to="https://api.whatsapp.com/resolve/?deeplink=%2F551197449-8322&not_found=1"
