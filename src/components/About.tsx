@@ -1,6 +1,5 @@
 import image from "../assets/image-PhotoRoom.png";
 import Footer from "./Footer";
-import Skills from "./Skills";
 export default function About() {
   return (
     <section
