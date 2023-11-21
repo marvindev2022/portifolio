@@ -68,7 +68,7 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
   };
 
   const renderNavLinks = () => {
-    return ["home", "about", "projects", "articles"].map((page) => (
+    return ["home", "about", "projects", "voluntary"].map((page) => (
       <li
         key={page}
         onClick={() => handlePageClick(page)}
@@ -82,7 +82,7 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
   };
 
   return (
-    <header className="w-full h-24 px-5 gap-14 py-5 xl:py-8 xl:px-32 lg:p-2 flex justify-between items-center mb:p-2 z-10">
+    <header className="w-full h-24 px-5 gap-16 sm:gap-14 py-5 xl:py-8 xl:px-32 lg:p-2 flex  sm:justify-between items-center mb:p-2 z-10">
       <span
         className="block lg:hidden text-[2rem] cursor-pointer"
         onClick={toggleMobileMenu}
@@ -111,6 +111,7 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
       <span className="hidden lg:block">
         <Nav />
       </span>
+      
     </header>
   );
 };

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function Articles() {
+export default function Voluntary() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -17,8 +17,10 @@ export default function Articles() {
     };
   }, []);
   return (
-    <section className="w-full h-full flex flex-wrap justify-center items-center gap-10 py-20">
-      <article>
+    <section className="w-full max-h-[100%]  flex flex-wrap justify-center items-center gap-10 pt-5">
+     <div className=" flex flex-wrap justify-center items-center gap-10 py-20 border" > 
+     <h2 className="text-4xl font-[main]">Artigos ComuniCubos</h2>
+     <article>
         <iframe
           className="max-h-[50%] overflow-auto"
           src="https://www.linkedin.com/embed/feed/update/urn:li:share:7117910659337486336"
@@ -63,7 +65,43 @@ export default function Articles() {
           allowFullScreen={false}
           title="Publicação incorporada"
         />
-      </article>
+      </article></div>
+      <div className=" flex flex-wrap justify-center items-center gap-10 py-20 border" >
+        <h2 className="text-4xl font-[main]">Artigos Linkedin</h2>
+        <article>
+          <iframe
+            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7117910659337486336"
+            height={isMobile ? "300" : "600"}
+            width={isMobile ? "300" : "504"}
+            allowFullScreen={false}
+            title="Publicação incorporada"
+          />
+        </article><article>
+          <iframe
+            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7117910659337486336"
+            height={isMobile ? "300" : "600"}
+            width={isMobile ? "300" : "504"}
+            allowFullScreen={false}
+            title="Publicação incorporada"
+          />
+        </article><article>
+          <iframe
+            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7117910659337486336"
+            height={isMobile ? "300" : "600"}
+            width={isMobile ? "300" : "504"}
+            allowFullScreen={false}
+            title="Publicação incorporada"
+          />
+        </article><article>
+          <iframe
+            src="https://www.linkedin.com/embed/feed/update/urn:li:share:7117910659337486336"
+            height={isMobile ? "300" : "600"}
+            width={isMobile ? "300" : "504"}
+            allowFullScreen={false}
+            title="Publicação incorporada"
+          />
+        </article>
+      </div>
     </section>
   );
 }
