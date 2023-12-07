@@ -9,6 +9,7 @@ export default {
         md: "48rem",
         lg: "64rem",
         xl: "80rem",
+        hd: "90.01rem",
       },
       height: {
         hsm: "20rem",

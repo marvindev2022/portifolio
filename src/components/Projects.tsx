@@ -37,7 +37,7 @@ export default function RenderProjects() {
       <h1 className="text-[4rem] mb-8 max-w-[50rem] text-center">
         A imaginação supera o conhecimento!
       </h1>
-      <div className="w-full h-full flex flex-col justify-center items-center mb-20 gap-5 px-10 ">
+      <div className="w-full h-full flex flex-col justify-center items-center mb-20 gap-10 px-10 ">
         <div className="w-[90vw] mx-10 sm:mx-0 sm:w-full h-full flex justify-center items-center bg-white pb-2 px-1 rounded-xl">
           <ProjectCard
             status="distac"
