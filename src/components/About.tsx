@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="w-full min-h-full text-center xl:text-justify h-full md:flex md:flex-col  md:items-center pt-10 md:px-32 xl:px-10"
+      className="w-full min-h-full text-center xl:text-justify h-full md:flex md:flex-col  md:items-center pt-10 md:px-32 xl:px-10 hd:px-20"
     >
       <h1 className="mx-auto text-center sm:text-justify px-5 text-7xl font-extrabold mb-20 ">
         A paixão alimenta o propósito!
@@ -37,31 +37,31 @@ export default function About() {
             paixão para o seu próximo projeto.
           </p>
         </div>
-        <div className="w-[21.5rem] m-auto h-[32rem] sm:w-[36.5rem] sm:h-[42rem] xl:w-[93rem] hd:w-[31.5rem] hd:w-[36.5rem]  col-span-3 rounded-2xl rounded-bl-[5%] rounded-t-r-[10%] rounded-b-r-[10%] border-2 border-solid border-black bg-white pl-[.0625rem] pt-[.0625rem] pb-2 pr-1 xl:col-span-4  relative ">
+        <div className="w-[21.5rem] m-auto h-[32rem] sm:w-[27.5rem] sm:h-[42rem] xl:w-[93rem] hd:w-[31.5rem] col-span-3 rounded-2xl rounded-bl-[5%] rounded-t-r-[10%] rounded-b-r-[10%] border-2 border-solid border-black bg-white pl-[.0625rem] pt-[.0625rem] pb-2 pr-1 xl:col-span-4  relative xl:ml-10">
           <div className="mt-[-0.5rem] ml-[-.1rem] flex justify-center items-center w-full h-full bg-[#1b1b1b]  border-2 border-white rounded-2xl p-5">
-            <div className="w-full h-full bg-gradient-to-b from-[#000007dd] via-transparent to-black rounded-2xl">
+            <div className="w-full h-full bg-gradient-to-b from-[#000007dd] via-transparent to-black rounded-2 ">
               <img
                 src={image}
                 alt="Marcus Roza"
-                className="w-[18rem] h-[22rem] md:w-[26rem] md:h-[30rem]  hd:w-[28rem] hd:h-[32rem] rounded-[50%] absolute top-16  left-2 xl:left-5  "
+                className="w-[18rem] h-[22rem] md:w-[26rem] md:h-[30rem]  hd:w-[28rem] hd:h-[32rem] rounded-[50%] absolute top-16  sm:left-2 md:left-1 lg:left-5 xl:left-2  "
               />
             </div>
           </div>
         </div>
-        <div className="sm:w-[36.5625rem] sm:h-[42rem] flex  lg:flex-row  gap-8 relative justify-center items-center">
-          <span className="flex flex-col   items-center  sm:block sm:absolute sm:top-5">
+        <div className="sm:w-[36.5625rem] lg:h-[42rem] flex  lg:flex-row  gap-8 relative justify-center items-center">
+          <span className="flex flex-col   items-center  sm:block lg:absolute sm:top-5">
             <b className="flex  justify-center items-center font-extrabold text-4xl sm:text-7xl font-special  ">
               02+
             </b>
             <p className=" w-[80px] sm:w-full">Projetos Voluntários</p>
           </span>
-          <span className="flex flex-col items-center sm:block sm:absolute sm:top-[40%] bottom-[40%]">
+          <span className="flex flex-col items-center sm:block lg:absolute sm:top-[40%] bottom-[40%]">
             <b className="flex font-extrabold text-4xl sm:text-7xl font-special  ">
               10+
             </b>
             <p className=" w-[80px] sm:w-full">Projetos Concluídos</p>
           </span>
-          <span className="flex flex-col items-center sm:block sm:absolute sm:bottom-5">
+          <span className="flex flex-col items-center sm:block lg:absolute sm:bottom-5">
             <b className="flex font-extrabold text-4xl sm:text-7xl font-special  ">
               01+
             </b>
