@@ -1,4 +1,4 @@
-import image from "../assets/image-PhotoRoom.png";
+import image from "../assets/profile.png";
 import Footer from "./Footer";
 export default function About() {
   return (
@@ -43,7 +43,7 @@ export default function About() {
               <img
                 src={image}
                 alt="Marcus Roza"
-                className="w-[18rem] h-[22rem] sm:w-[28rem] sm:h-[32rem] rounded-[50%] absolute top-16  left-2  "
+                className="w-[16rem] h-[20rem] sm:w-[26rem] sm:h-[30rem] rounded-[50%] absolute top-16  left-1/2 transform -translate-x-1/2 right-1/2  object-cover "
               />
             </div>
           </div>

@@ -1,130 +1,78 @@
-import github from "../assets/github.svg";
-import sabores from "../assets/sabores.png";
-import backtome from "../assets/backtome.png";
-import forum from "../assets/forum.png";
-import maxitorque from "../assets/maxitorque.png";
+import sabores1 from "../assets/sabores/sabores.png";
+import sabores2 from "../assets/sabores/Captura de tela de 2023-12-06 16-49-59.png";
+import sabores3 from "../assets/sabores/Captura de tela de 2023-12-06 16-50-20.png";
+import backtome1 from "../assets/backtome/backtome.png";
+import backtome2 from "../assets/backtome/Captura de tela de 2023-12-06 16-34-57.png";
+import backtome3 from "../assets/backtome/Captura de tela de 2023-12-06 16-35-03.png";
+import maxitorque1 from "../assets/maxitorque/maxitorque.png";
+import maxitorque2 from "../assets/maxitorque/Captura de tela de 2023-12-06 16-52-05.png";
+import maxitorque3 from "../assets/maxitorque/Captura de tela de 2023-12-06 16-52-21.png";
 import Footer from "./Footer";
+import { useEffect, useState } from "react";
+import ProjectCard from "./ProjectCards";
+const size = window.innerWidth < 768;
 
-function ProjectCard({
-  status,
-  statusText,
-  image,
-  title,
-  description,
-  githubLink,
-  projectLink,
-}: any) {
-  return (
-    <article
-      className={`w-full h-full flex  bg-[#1b1b1b]  border-[.0625rem] border-white  mt-[-.225rem] ml-[-.225rem] rounded-lg ${
-        !status ? "flex-col items-center " : "justify-center items-center"
-      }`}
-    >
-      {status ? (
-        <>
-          <img
-            src={image}
-            alt="imagem"
-            className="w-[40%] h-5/6 object-cover rounded-lg m-5 border-black hover:scale-[1.03] transition-all duration-500 ease-in-out"
-          />
-          <div className="flex flex-col w-1/2 min-h-full  object-fill  justify-around items-start  p-4 gap-10">
-            <span className="text-3xl text-[aqua] font-[main] ">
-              {statusText}
-            </span>
-            <strong className="text-4xl font-[main]">{title}</strong>
-            <p className="text-2xl ">{description}</p>
-            <nav className="mt-4 flex gap-2">
-              <button className="ml-2 bg-white text-black rounded-lg p-2">
-                <a href={projectLink} target="_blank" rel="noopener noreferrer">
-                  Visitar Projeto
-                </a>
-              </button>
-              <a href={githubLink} target="_blank">
-                <img src={github} alt="github" className="w-10 h-10 " />
-              </a>{" "}
-            </nav>
-          </div>
-        </>
-      ) : (
-        <>
-          <img
-            src={image}
-            alt="imagem"
-            className=" h-[25rem] object-fill rounded-lg m-5 border-black hover:scale-[1.03] transition-all duration-500 ease-in-out"
-          />
-          <div className="w-11/12 h-full  flex flex-col justify-start items-start  p-4 gap-1">
-            <strong className="text-2xl font-[main] px-5">{title}</strong>
-            <nav className="w-full mt-4 flex justify-between p-5 ">
-              <a
-                href={projectLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white underline ml-2 px-2"
-              >
-                Visitar
-              </a>
-              <a href={githubLink} target="_blank">
-                <img src={github} alt="github" className="w-10 h-10 " />
-              </a>
-            </nav>
-          </div>
-        </>
-      )}
-    </article>
-  );
-}
 
-export default function Projects() {
+
+export default function RenderProjects() {
+  const [currentImage, setCurrentImage] = useState(0);
+  const imagesBTM = [backtome1, backtome2, backtome3];
+  const imagesSabores = [sabores1, sabores2, sabores3];
+  const imagesMaxiTorque = [maxitorque1, maxitorque2, maxitorque3];
+
+  useEffect(() => {
+    if(size) return;
+    const intervalId = setInterval(() => {
+      setCurrentImage((prevImage) => (prevImage + 1) % imagesBTM.length);
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const renderImgBTM = imagesBTM[currentImage];
+  const renderImgSabores = imagesSabores[currentImage];
+  const renderImgMaxiTorque = imagesMaxiTorque[currentImage];
   return (
     <section className="w-full h-full flex flex-col justify-center items-center px-32 py-5 font-extrabold ">
       <h1 className="text-[4rem] mb-8 max-w-[50rem] text-center">
         A imaginação supera o conhecimento!
       </h1>
-      <div className="w-full h-full flex flex-col justify-center items-center mb-20 ">
-        <div className="w-full h-full flex justify-center items-center bg-white pb-2 px-1 rounded-xl">
+      <div className="w-full h-full flex flex-col justify-center items-center mb-20 gap-5 px-10 ">
+        <div className="w-[90vw] mx-10 sm:mx-0 sm:w-full h-full flex justify-center items-center bg-white pb-2 px-1 rounded-xl">
           <ProjectCard
             status="distac"
             statusText="Projeto em Destaque"
-            image={backtome}
+            image={renderImgBTM}
             title="BackToMe."
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
-            githubLink="https://github.com/seu-usuario/backtome"
-            projectLink="https://seu-usuario.github.io/backtome"
+            description={`O projeto "BackToMe" é uma plataforma abrangente que visa facilitar a busca por animais perdidos e promover a adoção de animais disponíveis. Com um enfoque no desenvolvimento full stack, a equipe do BackToMe criou uma solução robusta que abrange todos os aspectos da experiência do usuário, desde o frontend até o backend.
+            `}
+            githubLink="https://github.com/marvindev2022/backtome"
+            projectLink="https://back-to-me.vercel.app/"
           />
         </div>
 
-        <div className="w-full h-full flex justify-center items-center mt-8 gap-5">
-          <div className="w-full h-full flex justify-center items-center bg-white pb-1 pr-1 rounded-xl">
-            <ProjectCard
-              image={sabores}
-              title="Sabores Compartilhado"
-              githubLink="https://github.com/seu-usuario/sabores-compartilhado"
-              projectLink="https://seu-usuario.github.io/sabores-compartilhado"
-            />
-          </div>
-
-          <div className="w-full h-full flex justify-center items-center bg-white pb-1 pr-1 rounded-xl">
-            <ProjectCard
-              image={forum}
-              title="Forum LMS "
-              githubLink="https://github.com/seu-usuario/forum-sass"
-              projectLink="https://elegant-meringue-f75e57.netlify.app/"
-            />
-          </div>
+        <div className="w-[90vw] mx-10 sm:mx-0 sm:w-full h-full flex justify-center items-center bg-white pb-1 pr-1 rounded-xl">
+          <ProjectCard
+            status="distac"
+            statusText="Projeto pessoal"
+            description="Esta plataforma é um refúgio virtual para todos os apaixonados por culinária que desejam compartilhar e descobrir receitas deliciosas. Aqui, conectamos entusiastas gastronômicos para trocar experiências, interagir por meio de comentários, marcar suas receitas favoritas e desbloquear sua imaginação na criação de pratos únicos."
+            image={renderImgSabores}
+            title="Sabores Compartilhado"
+            githubLink="https://github.com/marvindev2022/sabores-compartilhado"
+            projectLink="https://sabores-compartilhados.netlify.app/"
+          />
         </div>
 
-        <div className="w-full h-full flex justify-center items-center mt-8 gap-5">
-          <div className="w-full h-full flex justify-center items-center bg-white pb-1 pr-1 rounded-xl">
+          <div className="w-[90vw] mx-10 sm:mx-0 sm:w-full h-full flex justify-center items-center bg-white pb-1 pr-1 rounded-xl">
             <ProjectCard
               status="distac"
               statusText="Projeto Freelancer"
-              image={maxitorque}
-              title="Landing page MaxiTorque"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+              image={renderImgMaxiTorque}
+              title="MaxiTorque Diesel"
+              description={`O projeto "MaxiTorque" é uma iniciativa inovadora que representa um marco na área automotiva desde 1990. Desenvolvido com paixão e comprometimento, o MaxiTorque destaca-se como uma solução completa para entusiastas e profissionais do setor automotivo.`}
               githubLink="https://github.com/marvindev2022/MaxiTorque"
               projectLink="https://urchin-app-wij8q.ondigitalocean.app/"
             />
-          </div>
         </div>
       </div>
       <Footer />

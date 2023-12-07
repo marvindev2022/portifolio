@@ -68,7 +68,7 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
   };
 
   const renderNavLinks = () => {
-    return ["home", "about", "projects", "voluntary"].map((page) => (
+    return ["home", "about", "projects", ].map((page) => (
       <li
         key={page}
         onClick={() => handlePageClick(page)}

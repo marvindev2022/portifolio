@@ -1,18 +1,16 @@
 import { useState } from "react";
 import Home from "./../components/Home";
 import About from "./../components/About";
-import Projects from "./../components/Projects";
+import RenderProjects from "./../components/Projects";
 import Header from "./../components/Header";
 import PageTransition from "../animation/PageTransition";
-import Voluntary from "../components/Voluntary";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState<string>("home");
   const pages: any = {
     home: <Home />,
     about: <About />,
-    projects: <Projects />,
-    voluntary: <Voluntary />,
+    projects: <RenderProjects />,
   };
 
   const handleSetSelectedPage = (page: string) => {

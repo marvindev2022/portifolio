@@ -3,6 +3,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+     
       screens: {
         sm: "40rem",
         md: "48rem",
@@ -35,22 +36,8 @@ export default {
         secondary: ["Inter"],
       },
     },
-    extend: {
-      "::-webkit-scrollbar": {
-        width: ".3125rem",
-      },
-      "::-webkit-scrollbar-track": {
-        background: "var(--blue-dark, #231E54)",
-        borderRadius: ".625rem",
-      },
-      "::-webkit-scrollbar-thumb": {
-        backgroundColor: "var(--blue-dark, #231E54)",
-        borderRadius: ".625rem",
-      },
-      scrollbarWidth: "thin",
-      scrollbarColor: "var(--blue-dark, #231E54) var(--blue-dark, #231E54)",
-    },
+    
   },
   purge: ["./src/**/*.html", "./src/**/*.jsx", "./src/**/*.tsx"],
-  plugins: [require("tailwind-scrollbar")],
+  plugins: [],
 };
