@@ -37,7 +37,7 @@ export default function About() {
             paixão para o seu próximo projeto.
           </p>
         </div>
-        <div className="w-[21.5rem] m-auto h-[32rem] sm:w-[36.5rem] sm:h-[42rem] xl:w-[93rem] xxl:w-[31.5rem] hd:w-[36.5rem]  col-span-3 rounded-2xl rounded-bl-[5%] rounded-t-r-[10%] rounded-b-r-[10%] border-2 border-solid border-black bg-white pl-[.0625rem] pt-[.0625rem] pb-2 pr-1 xl:col-span-4  relative ">
+        <div className="w-[21.5rem] m-auto h-[32rem] sm:w-[36.5rem] sm:h-[42rem] xl:w-[93rem] hd:w-[31.5rem] hd:w-[36.5rem]  col-span-3 rounded-2xl rounded-bl-[5%] rounded-t-r-[10%] rounded-b-r-[10%] border-2 border-solid border-black bg-white pl-[.0625rem] pt-[.0625rem] pb-2 pr-1 xl:col-span-4  relative ">
           <div className="mt-[-0.5rem] ml-[-.1rem] flex justify-center items-center w-full h-full bg-[#1b1b1b]  border-2 border-white rounded-2xl p-5">
             <div className="w-full h-full bg-gradient-to-b from-[#000007dd] via-transparent to-black rounded-2xl">
               <img
