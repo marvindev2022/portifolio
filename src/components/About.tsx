@@ -10,7 +10,7 @@ export default function About() {
       <h1 className="mx-auto text-center sm:text-justify px-5 text-7xl font-extrabold mb-20 ">
         A paixão alimenta o propósito!
       </h1>
-      <div className=" flex flex-col lg:flex-row w-[400px] sm:w-full max-h-full gap-10 mb-10 p-5">
+      <div className=" flex flex-col lg:flex-row w-[400px] sm:w-full max-h-full gap-10 mb-1 p-5">
         <div className="flex flex-col px-5 text-gray-100  md:w-[36.5625rem] md:h-[36.5625rem] md:ml-[-2rem] md:mr-8">
           <h2 className="w-[36.5625rem] text-start   md:text-justify text-2xl font-extrabold my-4">
             Biografia

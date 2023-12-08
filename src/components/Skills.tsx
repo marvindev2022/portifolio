@@ -27,8 +27,7 @@ export default function Skills() {
       id="skills"
       className="hidden xl:flex w-full min-h-full   flex-col items-center pb-10 px-32 gap-10 relative"
     >
-      <h1 className="text-7xl font-extrabold  py-16">Skills</h1>
-
+      <h1 className="text-7xl font-extrabold  pt-16">Skills</h1>
       <div
         style={{
           background: `repeating-radial-gradient(hsla(0,0%,100%,.5) 2px, #1b1b1b 8px, #1b1b1b 100px)`,
