@@ -19,7 +19,7 @@ export default function Nav() {
       >
         <img className="cursor-pointer w-8 h-8" src={cv} alt="curriculo" />
       </Link>
-      <Link target="_blank" to="https://wa.me/551197449-8322">
+      <Link target="_blank" to="https://api.whatsapp.com/send?phone=5521964642376">
         <img className="cursor-pointer w-8 h-8" src={whatsapp} alt="whatsapp" />
       </Link>
     </nav>

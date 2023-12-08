@@ -33,7 +33,7 @@ export default function Home() {
               <img src={icon} alt="icon" />
             </Link>
             <Link
-              to="https://api.whatsapp.com/resolve/?deeplink=%2F551197449-8322&not_found=1"
+              to="https://api.whatsapp.com/send?phone=5521964642376"
               target="_blank"
               className="flex items-center justify-center text-center w-[9.5rem] sm:w-[14.5rem] lg:w-[9.5rem] md:w-[9.5rem] h-14 underline text-white bg-none rounded-md"
             >
