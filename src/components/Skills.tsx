@@ -63,10 +63,10 @@ export default function Skills() {
           return (
             <div
               key={index}
-              className={`w-32 h-20 rounded-full bg-white flex justify-center items-center absolute`}
+              className={`w-32 h-20 rounded-full bg-white hover:bg-[#1b1b1b]  text-[#1b1b1b]  hover:text-white  hover:border-2 flex justify-center items-center absolute`}
               style={interpolatedStyle}
             >
-              <h1 className="text-xl font-bold text-[#1b1b1b]">{skill.name}</h1>
+              <h1 className="text-xl font-bold">{skill.name}</h1>
             </div>
           );
         })}
