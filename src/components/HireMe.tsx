@@ -5,7 +5,7 @@ import svg from "./../assets/animado.png";
 export default function HireMe() {
   return (
     <Link
-      to="https://api.whatsapp.com/send?phone=5521964642376"
+      to="https://web.whatsapp.com/send/?phone=5521964642376"
       target="_blank"
       className="hidden md:block w-auto  top-[-7rem] rounded-[50%] text-white absolute md:top-[-15rem] md:left-[.9375rem]"
     >
