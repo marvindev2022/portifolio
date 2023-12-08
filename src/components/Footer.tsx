@@ -4,12 +4,12 @@ interface Prop{
 }
 export default function Footer({active}:Prop) {
   return (
-    <footer className="w-[390px] md:w-full  flex items-center  border-t-2 relative">
+    <footer className="w-screen  flex flex-col sm:flex-row  items-center  justify-center border-t-2  relative pt-5 ">
       {active && <HireMe/>}
-      <span className="hidden sm:flex w-full sm:w-1/2  md:py-10 p-5 md:px-32 items-center relative">
+      <span className="w-full   flex lg:py-10 p-5 lg:px-32 items-center justify-center">
         2023 © All Rights Reserved.
       </span>
-      <span className="w-full sm:w-1/2  flex md:py-10 p-5 md:px-32 items-center justify-center gap-2 relative ">
+      <span className="w-full  flex lg:py-10 p-5 lg:px-32 items-center  justify-center gap-2">
         Built with <b className="text-red-500"> ❤️ </b> by Marcus Roza
       </span>
     </footer>

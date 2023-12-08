@@ -2,14 +2,26 @@ import { useEffect, useState } from "react";
 import { skills } from "../data/skills";
 
 export default function Skills() {
-  const [inSkillScroll, setInSkillScroll] = useState(false);
-  useEffect(()=>{
-    if(window.scrollY >= 1058){
-      setInSkillScroll(true)
-    }else{
-      setInSkillScroll(false)
-    }
-  },[])
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      const scrollHeight = document.documentElement.scrollHeight - windowHeight;
+      const scrollY = window.scrollY;
+
+      const progress = scrollY / scrollHeight;
+
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <section
       id="skills"
@@ -20,21 +32,44 @@ export default function Skills() {
       <div
         style={{
           background: `repeating-radial-gradient(hsla(0,0%,100%,.5) 2px, #1b1b1b 8px, #1b1b1b 100px)`,
-          width: `${100 + 11 * 100}px`,
-          height: `${100 + 11 * 80}px`,
+          width: `${100 + 10 * 100}px`,
+          height: `${100 + 10 * 80}px`,
         }}
         className="bg-none rounded-[50%] relative"
       >
-        {skills.map((skill, index) => (
-          <div
-            key={index}
-            className={`w-32 h-20 rounded-full bg-white flex justify-center items-center ${
-              !inSkillScroll ? skill.position : "bottom-[45%] left-[44%]"
-            } absolute right-[100px]`}
-          >
-            <h1 className="text-xl font-bold text-[#1b1b1b]">{skill.name}</h1>
-          </div>
-        ))}
+        {skills.map((skill, index) => {
+          const { styleInitial, styleFinal } = skill as {
+            styleInitial: { transform: string; transition: string };
+            styleFinal?: { transform: string; transition: string };
+          };
+
+          const interpolatedStyle = {
+            transform: `translate(${styleInitial.transform
+              .split(",")
+              .map((initial, i) => {
+                const final = styleFinal?.transform?.split(",")[i] || initial;
+                const initialValue = parseFloat(
+                  initial.replace(/[^0-9-.]/g, "")
+                );
+                const finalValue = parseFloat(final.replace(/[^0-9-.]/g, ""));
+                const interpolatedValue =
+                  initialValue + (finalValue - initialValue) * scrollProgress;
+                return `${interpolatedValue}px`;
+              })
+              .join(",")})`,
+            transition: styleInitial.transition,
+          };
+
+          return (
+            <div
+              key={index}
+              className={`w-32 h-20 rounded-full bg-white flex justify-center items-center absolute`}
+              style={interpolatedStyle}
+            >
+              <h1 className="text-xl font-bold text-[#1b1b1b]">{skill.name}</h1>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

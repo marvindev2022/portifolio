@@ -1,5 +1,6 @@
 import image from "../assets/profile.png";
 import Footer from "./Footer";
+import Skills from "./Skills";
 export default function About() {
   return (
     <section
@@ -69,7 +70,7 @@ export default function About() {
           </span>
         </div>
       </div>
-
+<Skills/>
       <Footer />
     </section>
   );
