@@ -25,7 +25,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="hidden md:flex w-full min-h-full   flex-col items-center pb-10 px-32 gap-10 relative"
+      className="hidden xl:flex w-full min-h-full   flex-col items-center pb-10 px-32 gap-10 relative"
     >
       <h1 className="text-7xl font-extrabold  py-16">Skills</h1>
 
