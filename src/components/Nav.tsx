@@ -15,7 +15,7 @@ export default function Nav() {
       </Link>
       <Link
         target="_blank"
-        to="https://docs.google.com/document/d/10aU8ROLUuQvDvtoNuJvvC8p1GKYZJQrWzwO8fJKWLjQ/edit"
+        to="mailto:mavirolero@gmail.com"
       >
         <img className="cursor-pointer w-8 h-8" src={cv} alt="curriculo" />
       </Link>

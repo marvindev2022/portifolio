@@ -25,7 +25,7 @@ export default function Home() {
           </span>
           <span className="w-full  justify-center items-center md:justify-start md:items-start md:w-9/12 flex mt-5 text-2xl sm:gap-5">
             <Link
-              to="https://docs.google.com/document/d/10aU8ROLUuQvDvtoNuJvvC8p1GKYZJQrWzwO8fJKWLjQ/edit"
+              to="https://docs.google.com/document/d/10aU8ROLUuQvDvtoNuJvvC8p1GKYZJQrWzwO8fJKWLjQ/"
               target="_blank"
               className="flex items-center justify-center gap-2 w-[9.5rem] sm:w-[14.5rem] lg:w-[9.5rem] md:w-[9.5rem] h-14 bg-white text-black rounded-md mr-5 border"
             >
