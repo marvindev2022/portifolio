@@ -1,4 +1,3 @@
-import profile from "./../assets/profile.png";
 import icon from "./../assets/icon.svg";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
