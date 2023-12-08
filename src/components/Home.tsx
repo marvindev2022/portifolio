@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <>
       <section className="flex flex-col md:flex-row items-center justify-between min-h-[90vh] px-4 md:px-32 relative mb-5 sm-mb-0">
-        <div className="bg-[url('./src/assets/background.png')]  bg-center bg-no-repeat flex items-center justify-center w-[20rem] h-[20rem] m-auto mt-10 md:m-0 xl:w-[35rem] xl:h-[35rem] md:w-[30rem] md:h-[rem] border xl:ml-16 xl:mt-[-10rem] rounded-[50%] relative">
+        <div className="bg-[url('https://f005.backblazeb2.com/file/mvr-portfolio/background.png')]  bg-center bg-no-repeat flex items-center justify-center w-[20rem] h-[20rem] m-auto mt-10 md:m-0 xl:w-[35rem] xl:h-[35rem] md:w-[30rem] md:h-[rem] border xl:ml-16 xl:mt-[-10rem] rounded-[50%] relative">
           <img
-            src={profile}
+            src="https://f005.backblazeb2.com/file/mvr-portfolio/profile.png"
             alt="profile"
             className="w-full object-fill rounded-[50%]"
           />

@@ -10,7 +10,7 @@ export default function Skills() {
       const scrollHeight = document.documentElement.scrollHeight - windowHeight;
       const scrollY = window.scrollY;
 
-      const progress = scrollY /scrollHeight ;
+      const progress = scrollY / scrollHeight;
 
       setScrollProgress(progress);
     };
@@ -25,16 +25,16 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="hidden xl:flex w-full min-h-full   flex-col items-center pb-10 px-32 gap-10 relative"
+      className="hidden xl:flex w-full min-h-full flex-col items-center pb-10 px-32 gap-10 relative"
     >
-      <h1 className="text-7xl font-extrabold  pt-16">Skills</h1>
+      <h1 className="text-7xl font-extrabold  pt-16 mb-[-50px]">Skills</h1>
       <div
         style={{
           background: `repeating-radial-gradient(hsla(0,0%,100%,.5) 2px, #1b1b1b 8px, #1b1b1b 100px)`,
           width: `${100 + 10 * 100}px`,
           height: `${100 + 10 * 80}px`,
         }}
-        className="bg-none rounded-[50%] relative"
+        className="bg-none rounded-[50%] relative mb-[-40px]"
       >
         {skills.map((skill, index) => {
           const { styleInitial, styleFinal } = skill as {
@@ -52,7 +52,7 @@ export default function Skills() {
                 );
                 const finalValue = parseFloat(final.replace(/[^0-9-.]/g, ""));
                 const interpolatedValue =
-                  initialValue + (finalValue - initialValue) * scrollProgress ;
+                  initialValue + (finalValue - initialValue) * scrollProgress;
                 return `${interpolatedValue}px`;
               })
               .join(",")})`,
