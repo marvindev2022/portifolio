@@ -10,7 +10,7 @@ export default function Skills() {
       const scrollHeight = document.documentElement.scrollHeight - windowHeight;
       const scrollY = window.scrollY;
 
-      const progress = scrollY / scrollHeight;
+      const progress = scrollY /scrollHeight ;
 
       setScrollProgress(progress);
     };
@@ -53,7 +53,7 @@ export default function Skills() {
                 );
                 const finalValue = parseFloat(final.replace(/[^0-9-.]/g, ""));
                 const interpolatedValue =
-                  initialValue + (finalValue - initialValue) * scrollProgress;
+                  initialValue + (finalValue - initialValue) * scrollProgress ;
                 return `${interpolatedValue}px`;
               })
               .join(",")})`,
