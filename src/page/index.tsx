@@ -20,11 +20,11 @@ function App() {
   return (
     <main className="w-full h-full flex flex-col  ">
       <ThemeProvider>
-      <Header
-        selectedPage={selectedPage}
-        setSelectedPage={handleSetSelectedPage}
-      />
-      <PageTransition children={pages[selectedPage]} />
+        <Header
+          selectedPage={selectedPage}
+          setSelectedPage={handleSetSelectedPage}
+        />
+        <PageTransition children={pages[selectedPage]} />
       </ThemeProvider>
     </main>
   );
