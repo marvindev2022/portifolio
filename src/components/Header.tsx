@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Nav from "./Nav";
 import RenderDialog from "./DialogMenu";
+import { useTheme } from "../context/theme";
 
 const colorClasses = [
   "bg-dark",
@@ -16,7 +17,7 @@ const colorClasses = [
 
 const Header = ({ selectedPage, setSelectedPage }: any) => {
   const [colorIndex, setColorIndex] = useState(0);
-
+  const {isDarkMode} = useTheme();
   const handleMouseEnter = () => {
     const colorChangeInterval = setInterval(() => {
       setColorIndex((prevIndex) => (prevIndex + 1) % colorClasses.length);
@@ -102,7 +103,7 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
 
       <span
         id="color-change-div"
-        className={`w-16 h-16 mt-2 flex justify-center items-center rounded-[50%] border-2 bg-black text-white font-[900]  border-white hover:${colorClasses} text-[1.3rem] `}
+        className={`w-16 h-16 mt-2 flex justify-center items-center rounded-[50%] border-2 ${isDarkMode ? 'bg-black  border-white ' : 'bg-light  border-dark text-black'} font-[900]  hover:${colorClasses} text-[1.3rem] `}
         onMouseEnter={handleMouseEnter}
       >
         MR
