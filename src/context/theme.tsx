@@ -14,12 +14,13 @@ const body = document.querySelector("body");
 const ThemeContext = createContext<any>({});
 
 export const ThemeProvider = ({ children }: any) => {
-  const [isDarkMode, setIsDarkMode] = useState(
-     true
-  );
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [theme, setTheme] = useState("dark");
+  const [themeDialog, setThemeDialog] = useState("light");
+
   const toggleTheme = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
+    themeDialog === "dark" ? setThemeDialog("dark") : setThemeDialog("light");
     if (body?.classList.contains("dark")) {
       body?.classList.remove("dark");
       body?.classList.add("light");
@@ -32,9 +33,11 @@ export const ThemeProvider = ({ children }: any) => {
   };
 
   const getImage = (imageName: any) => {
-    return isDarkMode ?  imageName.light: imageName.dark;
+    return isDarkMode ? imageName.light : imageName.dark;
   };
-
+  const getImageDialog = (imageName: any) => {
+    return isDarkMode ? imageName.dark : imageName.light;
+  };
   const assets = {
     github: getImage({ light: githubLight, dark: githubDark }),
     linkedin: getImage({ light: linkedinLight, dark: linkedinDark }),
@@ -42,9 +45,18 @@ export const ThemeProvider = ({ children }: any) => {
     whatsapp: getImage({ light: whatsappLight, dark: whatsappDark }),
     theme: getImage({ light: themeLight, dark: themeDark }),
   };
+  const assetsDialog = {
+    github: getImageDialog({ light: githubLight, dark: githubDark }),
+    linkedin: getImageDialog({ light: linkedinLight, dark: linkedinDark }),
+    gmail: getImageDialog({ light: gmailLight, dark: gmailDark }),
+    whatsapp: getImageDialog({ light: whatsappLight, dark: whatsappDark }),
+    theme: getImageDialog({ light: themeLight, dark: themeDark }),
+  };
 
   return (
-    <ThemeContext.Provider value={{ isDarkMode, toggleTheme, assets, theme }}>
+    <ThemeContext.Provider
+      value={{ isDarkMode, toggleTheme, assets, theme, assetsDialog }}
+    >
       {children}
     </ThemeContext.Provider>
   );

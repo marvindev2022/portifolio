@@ -10,18 +10,18 @@ import maxitorque3 from "../assets/maxitorque/Captura de tela de 2023-12-06 16-5
 import Footer from "./Footer";
 import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCards";
+import { useTheme } from "../context/theme";
 const size = window.innerWidth < 768;
-
-
 
 export default function RenderProjects() {
   const [currentImage, setCurrentImage] = useState(0);
   const imagesBTM = [backtome1, backtome2, backtome3];
   const imagesSabores = [sabores1, sabores2, sabores3];
   const imagesMaxiTorque = [maxitorque1, maxitorque2, maxitorque3];
+  const { isDarkMode } = useTheme();
 
   useEffect(() => {
-    if(size) return;
+    if (size) return;
     const intervalId = setInterval(() => {
       setCurrentImage((prevImage) => (prevImage + 1) % imagesBTM.length);
     }, 5000);
@@ -38,7 +38,11 @@ export default function RenderProjects() {
         A imaginação supera o conhecimento!
       </h1>
       <div className="w-full h-full flex flex-col justify-center items-center mb-20 gap-10 px-10 ">
-        <div className="w-[90vw] mx-10 sm:mx-0 sm:w-full h-full flex justify-center items-center bg-white pb-2 px-1 rounded-xl">
+        <div
+          className={`w-[90vw] mx-10 sm:mx-0 sm:w-full h-full flex justify-center items-center ${
+            isDarkMode ? "bg-white text-dark" : "bg-dark text-white"
+          } pb-2 px-1 rounded-xl`}
+        >
           <ProjectCard
             status="distac"
             statusText="Projeto em Destaque"
@@ -51,7 +55,11 @@ export default function RenderProjects() {
           />
         </div>
 
-        <div className="w-[90vw] mx-10 sm:mx-0 sm:w-full h-full flex justify-center items-center bg-white pb-1 pr-1 rounded-xl">
+        <div
+          className={`w-[90vw] mx-10 sm:mx-0 sm:w-full h-full flex justify-center items-center ${
+            isDarkMode ? "bg-white text-dark" : "bg-dark text-white"
+          } pb-1 pr-1 rounded-xl`}
+        >
           <ProjectCard
             status="distac"
             statusText="Projeto pessoal"
@@ -63,16 +71,20 @@ export default function RenderProjects() {
           />
         </div>
 
-          <div className="w-[90vw] mx-10 sm:mx-0 sm:w-full h-full flex justify-center items-center bg-white pb-1 pr-1 rounded-xl">
-            <ProjectCard
-              status="distac"
-              statusText="Projeto Freelancer"
-              image={renderImgMaxiTorque}
-              title="MaxiTorque Diesel"
-              description={`O projeto "MaxiTorque" é uma iniciativa inovadora que representa um marco na área automotiva desde 1990. Desenvolvido com paixão e comprometimento, o MaxiTorque destaca-se como uma solução completa para entusiastas e profissionais do setor automotivo.`}
-              githubLink="https://github.com/marvindev2022/MaxiTorque"
-              projectLink="https://urchin-app-wij8q.ondigitalocean.app/"
-            />
+        <div
+          className={`w-[90vw] mx-10 sm:mx-0 sm:w-full h-full flex justify-center items-center ${
+            isDarkMode ? "bg-white text-dark" : "bg-dark text-white"
+          } pb-1 pr-1 rounded-xl`}
+        >
+          <ProjectCard
+            status="distac"
+            statusText="Projeto Freelancer"
+            image={renderImgMaxiTorque}
+            title="MaxiTorque Diesel"
+            description={`O projeto "MaxiTorque" é uma iniciativa inovadora que representa um marco na área automotiva desde 1990. Desenvolvido com paixão e comprometimento, o MaxiTorque destaca-se como uma solução completa para entusiastas e profissionais do setor automotivo.`}
+            githubLink="https://github.com/marvindev2022/MaxiTorque"
+            projectLink="https://urchin-app-wij8q.ondigitalocean.app/"
+          />
         </div>
       </div>
       <Footer />

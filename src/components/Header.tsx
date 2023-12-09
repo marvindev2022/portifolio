@@ -110,7 +110,7 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
       </span>
 
       <span className="hidden lg:block">
-        <Nav />
+        <Nav dialog={false} />
       </span>
     </header>
   );

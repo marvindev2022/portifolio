@@ -2,11 +2,10 @@
 import { Link } from 'react-router-dom';
 import { useTheme } from '../context/theme';
 
-export default function Nav() {
-  const { isDarkMode, toggleTheme, assets } = useTheme();
-
+export default function Nav({dialog}:any) {
+  const { isDarkMode, toggleTheme, assets, } = useTheme();
   return (
-    <nav className={`flex justify-between items-center gap-8 p-5 ${isDarkMode ?  'dark':'light'}`}>
+    <nav className={`flex justify-between items-center gap-8 p-5 ${isDarkMode && !dialog ?  'dark':'light'}`}>
       <Link target="_blank" to="https://github.com/marvindev2022">
         <img className="cursor-pointer w-8 h-8" src={assets.github} alt="github" />
       </Link>
