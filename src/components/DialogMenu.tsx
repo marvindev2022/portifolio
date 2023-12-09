@@ -33,7 +33,7 @@ export default function RenderDialog({
           >
             {"X"}
           </strong>
-          <ul className={`flex h-1/2 justify-center items-center flex-col gap-5 `}>
+          <ul className={`flex h-1/2 justify-center items-center flex-col gap-5 ${ isDarkMode ? "text-dark" : "text-light"} `}>
             {renderNavLinks()}
           </ul>
           <NavDialog />

@@ -36,8 +36,8 @@ export default function Skills() {
         style={{
           background: `repeating-radial-gradient(${
             isDarkMode ? "hsla(0,0%,100%,.5)" : "hsla(0,0%,0%,.5)"
-          } .125rem, ${isDarkMode ? "dark" : "#ffffff"} .5rem, ${
-            isDarkMode ? "dark" : "#ffffff"
+          } .125rem, ${isDarkMode ? "#1b1b1b" : "#ffffff"} .5rem, ${
+            isDarkMode ? "#1b1b1b" : "#ffffff"
           } 6.25rem)`,
           width: `${100 + 10 * 100}px`,
           height: `${100 + 10 * 80}px`,
@@ -72,7 +72,7 @@ export default function Skills() {
               key={index}
               className={`w-32 h-20 rounded-full ${
                 isDarkMode
-                  ? "bg-white hover:bg-[dark]  text-[dark]"
+                  ? "bg-white hover:bg-dark  text-dark"
                   : "bg-dark hover:bg-light  text-light"
               }  hover:  hover:border-2 flex justify-center items-center absolute`}
               style={interpolatedStyle}
