@@ -5,6 +5,7 @@ import { useTheme } from "../context/theme";
 export default function Skills() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const { isDarkMode } = useTheme();
+
   useEffect(() => {
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
