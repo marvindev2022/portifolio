@@ -69,7 +69,11 @@ export default function Skills() {
           return (
             <div
               key={index}
-              className={`w-32 h-20 rounded-full ${isDarkMode ?  'bg-white hover:bg-[dark]  text-[dark]' :'bg-dark hover:bg-light  text-light'}  hover:  hover:border-2 flex justify-center items-center absolute`}
+              className={`w-32 h-20 rounded-full ${
+                isDarkMode
+                  ? "bg-white hover:bg-[dark]  text-[dark]"
+                  : "bg-dark hover:bg-light  text-light"
+              }  hover:  hover:border-2 flex justify-center items-center absolute`}
               style={interpolatedStyle}
             >
               <h1 className="text-xl font-bold">{skill.name}</h1>
