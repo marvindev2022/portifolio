@@ -32,7 +32,7 @@ export default function ProjectCard({
         className={`lg:w-3/6 lg:h-5/6 lg:object-cover rounded-lg m-5 ${isDarkMode ? 'border-light': 'border-dark'} hover:scale-[1.03] transition-all duration-500 ease-in-out border-2`}
       />
       <div className="flex flex-col lg:w-1/2 lg:min-h-full  lg:object-fill  justify-around items-start  p-4 gap-5">
-        <span className="text-3xl text-[aqua] font-[main] ">{statusText}</span>
+        <span className={`text-3xl ${isDarkMode ? 'text-[aqua]' : 'text-[blue]'} font-[main] `}>{statusText}</span>
         <strong className={`text-4xl font-[main] ${isDarkMode ? 'text-white': 'text-dark'}`}>{title}</strong>
         <p className={`hidden lg:block text-2xl  ${isDarkMode ? 'text-white': 'text-dark'}`}>{description}</p>
         <nav className="mt-4 flex gap-2">
