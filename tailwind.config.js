@@ -19,11 +19,9 @@ export default {
       },
 
       colors: {
-        secondary: "#231e54",
-        primary: "#FBAD36",
-        gray: {
-          500: "#494949",
-        },
+       dark: "#1A1A1A", 
+       light: "#FFFFFF",
+
       },
       boxShadow: {
         around:

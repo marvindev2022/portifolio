@@ -27,7 +27,7 @@ export default function Home() {
             <Link
               to="https://docs.google.com/document/d/10aU8ROLUuQvDvtoNuJvvC8p1GKYZJQrWzwO8fJKWLjQ/edit?usp=sharing"
               target="_blank"
-              className="flex items-center justify-center gap-2 w-[9.5rem] sm:w-[14.5rem] lg:w-[9.5rem] md:w-[9.5rem] h-14 bg-white text-black rounded-md mr-5 border"
+              className="flex items-center justify-center gap-2 w-[9.5rem] sm:w-[14.5rem] lg:w-[9.5rem] md:w-[9.5rem] h-14 bg-white text-dark rounded-md mr-5 border"
             >
               <p>Curriculo</p>
               <img src={icon} alt="icon" />
@@ -35,7 +35,7 @@ export default function Home() {
             <Link
               to="https://api.whatsapp.com/send?phone=5521964642376"
               target="_blank"
-              className="flex items-center justify-center text-center w-[9.5rem] sm:w-[14.5rem] lg:w-[9.5rem] md:w-[9.5rem] h-14 underline text-white bg-none rounded-md"
+              className="flex items-center justify-center text-center w-[9.5rem] sm:w-[14.5rem] lg:w-[9.5rem] md:w-[9.5rem] h-14 underline  bg-none rounded-md"
             >
               Contato
             </Link>

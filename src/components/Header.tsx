@@ -3,7 +3,7 @@ import Nav from "./Nav";
 import RenderDialog from "./DialogMenu";
 
 const colorClasses = [
-  "bg-black",
+  "bg-dark",
   "bg-red-500",
   "bg-blue-500",
   "bg-green-500",
@@ -26,7 +26,7 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
       const colorChangeDiv = document.getElementById("color-change-div");
       if (colorChangeDiv) {
         colorChangeDiv.classList.remove(...colorClasses);
-        colorChangeDiv.classList.add("bg-black");
+        colorChangeDiv.classList.add("bg-dark");
       }
     };
 
@@ -68,7 +68,7 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
   };
 
   const renderNavLinks = () => {
-    return ["home", "about", "projects", ].map((page) => (
+    return ["Home", "Sobre", "Projetos"].map((page) => (
       <li
         key={page}
         onClick={() => handlePageClick(page)}
@@ -102,7 +102,7 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
 
       <span
         id="color-change-div"
-        className={`w-16 h-16 mt-2 flex justify-center items-center rounded-[50%] border-2 bg-black font-[900] text-[1rem] border-white hover:${colorClasses} text-[1.3rem]`}
+        className={`w-16 h-16 mt-2 flex justify-center items-center rounded-[50%] border-2 bg-black text-white font-[900]  border-white hover:${colorClasses} text-[1.3rem] `}
         onMouseEnter={handleMouseEnter}
       >
         MR
@@ -111,7 +111,6 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
       <span className="hidden lg:block">
         <Nav />
       </span>
-      
     </header>
   );
 };

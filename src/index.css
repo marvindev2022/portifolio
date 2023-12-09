@@ -10,9 +10,13 @@
   margin: 0;
   font-family: Fira sans, sans-serif;
 }
-.dark {
+.dark{
   background-color: #1b1b1b;
   color: #fff;
+}
+.light{
+  background-color: #fff;
+  color: #1b1b1b;
 }
 strong {
   font-family: Lobster, cursive;

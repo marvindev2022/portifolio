@@ -28,14 +28,14 @@ export default function ProjectCard({
       <img
         src={image}
         alt="imagem"
-        className="lg:w-3/6 lg:h-5/6 lg:object-cover rounded-lg m-5 border-black hover:scale-[1.03] transition-all duration-500 ease-in-out"
+        className="lg:w-3/6 lg:h-5/6 lg:object-cover rounded-lg m-5 border-dark hover:scale-[1.03] transition-all duration-500 ease-in-out"
       />
       <div className="flex flex-col lg:w-1/2 lg:min-h-full  lg:object-fill  justify-around items-start  p-4 gap-5">
         <span className="text-3xl text-[aqua] font-[main] ">{statusText}</span>
         <strong className="text-4xl font-[main]">{title}</strong>
         <p className="hidden lg:block text-2xl ">{description}</p>
         <nav className="mt-4 flex gap-2">
-          <button className="ml-2 bg-white text-black rounded-lg p-2">
+          <button className="ml-2 bg-white text-dark rounded-lg p-2">
             <a href={projectLink} target="_blank" rel="noopener noreferrer">
               Visitar Projeto
             </a>

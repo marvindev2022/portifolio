@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { skills } from "../data/skills";
+import { useTheme } from "../context/theme";
 
 export default function Skills() {
   const [scrollProgress, setScrollProgress] = useState(0);
-
+  const { isDarkMode } = useTheme();
   useEffect(() => {
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
@@ -27,14 +28,20 @@ export default function Skills() {
       id="skills"
       className="hidden xl:flex w-full min-h-full flex-col items-center pb-10 px-32 gap-10 relative"
     >
-      <h1 className="text-7xl font-extrabold  pt-16 mb-[-50px]">Skills</h1>
+      <h1 className="text-7xl font-extrabold  pt-16 mb-[-3.125rem] font-main">
+        Skills
+      </h1>
       <div
         style={{
-          background: `repeating-radial-gradient(hsla(0,0%,100%,.5) 2px, #1b1b1b 8px, #1b1b1b 100px)`,
+          background: `repeating-radial-gradient(${
+            isDarkMode ? "hsla(0,0%,100%,.5)" : "hsla(0,0%,0%,.5)"
+          } .125rem, ${isDarkMode ? "dark" : "#ffffff"} .5rem, ${
+            isDarkMode ? "dark" : "#ffffff"
+          } 6.25rem)`,
           width: `${100 + 10 * 100}px`,
           height: `${100 + 10 * 80}px`,
         }}
-        className="bg-none rounded-[50%] relative mb-[-40px]"
+        className="bg-none rounded-[50%] relative mb-[-2.5rem]"
       >
         {skills.map((skill, index) => {
           const { styleInitial, styleFinal } = skill as {
@@ -62,7 +69,7 @@ export default function Skills() {
           return (
             <div
               key={index}
-              className={`w-32 h-20 rounded-full bg-white hover:bg-[#1b1b1b]  text-[#1b1b1b]  hover:text-white  hover:border-2 flex justify-center items-center absolute`}
+              className={`w-32 h-20 rounded-full ${isDarkMode ?  'bg-white hover:bg-[dark]  text-[dark]' :'bg-dark hover:bg-light  text-light'}  hover:  hover:border-2 flex justify-center items-center absolute`}
               style={interpolatedStyle}
             >
               <h1 className="text-xl font-bold">{skill.name}</h1>

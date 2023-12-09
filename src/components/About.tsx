@@ -1,7 +1,10 @@
 import image from "../assets/profile.png";
+import { useTheme } from "../context/theme";
 import Footer from "./Footer";
 import Skills from "./Skills";
+
 export default function About() {
+  const { isDarkMode, theme } = useTheme();
   return (
     <section
       id="about"
@@ -11,13 +14,17 @@ export default function About() {
         A paixão alimenta o propósito!
       </h1>
       <div className=" flex flex-col lg:flex-row w-[400px] sm:w-full max-h-full gap-10 mb-1 p-5">
-        <div className="flex flex-col px-5 text-gray-100  md:w-[36.5625rem] md:h-[36.5625rem] md:ml-[-2rem] md:mr-8">
+        <div
+          className={`flex flex-col px-5 ${
+            isDarkMode ? "text-gray-100" : "text-black"
+          }  md:w-[36.5625rem] md:h-[36.5625rem] md:ml-[-2rem] md:mr-8`}
+        >
           <h2 className="w-[36.5625rem] text-start   md:text-justify text-2xl font-extrabold my-4">
             Biografia
           </h2>
           <p className="sm:w-[36.5625rem] text-justify font-medium text-xl">
             Oi, eu sou{" "}
-            <strong className="font-extrabold text-white font-[inter]">
+            <strong className="font-extrabold  font-[inter]">
               Marcus Roza
             </strong>
             , um desenvolvedor de software web com paixão por criar experiências
@@ -38,9 +45,21 @@ export default function About() {
             paixão para o seu próximo projeto.
           </p>
         </div>
-        <div className="w-[21.5rem] m-auto h-[32rem] sm:w-[27.5rem] sm:h-[42rem] xl:w-[93rem] hd:w-[31.5rem] col-span-3 rounded-2xl rounded-bl-[5%] rounded-t-r-[10%] rounded-b-r-[10%] border-2 border-solid border-black bg-white pl-[.0625rem] pt-[.0625rem] pb-2 pr-1 xl:col-span-4  relative xl:ml-10">
-          <div className="mt-[-0.5rem] ml-[-.1rem] flex justify-center items-center w-full h-full bg-[#1b1b1b]  border-2 border-white rounded-2xl p-5">
-            <div className="w-full h-full bg-gradient-to-b from-[#000007dd] via-transparent to-black rounded-2 ">
+        <div
+          className={`w-[21.5rem] m-auto h-[32rem] sm:w-[27.5rem] sm:h-[42rem] xl:w-[93rem] hd:w-[31.5rem] col-span-3 rounded-2xl rounded-bl-[5%] rounded-t-r-[10%] rounded-b-r-[10%] border-2 border-solid ${
+            isDarkMode ? "bg-light border-dark" : "bg-dark border-white"
+          } pl-[.0625rem] pt-[.0625rem] pb-2 pr-1 xl:col-span-4  relative xl:ml-10`}
+        >
+          <div
+            className={`mt-[-0.5rem] ml-[-.1rem] flex justify-center items-center w-full h-full  border-2 ${
+              isDarkMode ? "bg-dark border-white" : "bg-light border-dark"
+            } rounded-2xl p-5`}
+          >
+            <div
+              className={`w-full h-full bg-gradient-to-b from-[${
+                isDarkMode ? "#0000007b" : "#ffffffff"
+              }] via-transparent to-${theme} rounded-2 `}
+            >
               <img
                 src={image}
                 alt="Marcus Roza"
@@ -49,28 +68,28 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="sm:w-[36.5625rem] lg:h-[42rem] flex  lg:flex-row  gap-8 relative justify-center items-center">
-          <span className="flex flex-col   items-center  sm:block lg:absolute sm:top-5">
-            <b className="flex  justify-center items-center font-extrabold text-4xl sm:text-7xl font-special  ">
+        <div className="sm:w-[20.5625rem] lg:h-[42rem] flex  lg:flex-row  gap-8 relative justify-center items-center ">
+          <span className="flex flex-col   items-center  sm:block lg:absolute sm:top-5 ">
+            <b className="flex font-extrabold text-4xl sm:text-7xl font-main  ">
               02+
             </b>
             <p className=" w-[80px] sm:w-full">Projetos Voluntários</p>
           </span>
-          <span className="flex flex-col items-center sm:block lg:absolute sm:top-[40%] bottom-[40%]">
-            <b className="flex font-extrabold text-4xl sm:text-7xl font-special  ">
+          <span className="flex flex-col items-center sm:block lg:absolute sm:top-[40%] bottom-[40%] ">
+            <b className="flex font-extrabold text-4xl sm:text-7xl font-main  ">
               10+
             </b>
             <p className=" w-[80px] sm:w-full">Projetos Concluídos</p>
           </span>
-          <span className="flex flex-col items-center sm:block lg:absolute sm:bottom-5">
-            <b className="flex font-extrabold text-4xl sm:text-7xl font-special  ">
+          <span className="flex flex-col items-center sm:block lg:absolute sm:bottom-5 ">
+            <b className="flex font-extrabold text-4xl sm:text-7xl font-main  ">
               01+
             </b>
             <p className=" w-[80px] sm:w-full">Anos de Experiência</p>
           </span>
         </div>
       </div>
-<Skills/>
+      <Skills />
       <Footer />
     </section>
   );
