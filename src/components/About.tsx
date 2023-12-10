@@ -1,10 +1,55 @@
+import { useEffect, useState } from "react";
 import image from "../assets/profile.png";
 import { useTheme } from "../context/theme";
 import Footer from "./Footer";
 import Skills from "./Skills";
 
+function formatarNumero(number:number) {
+  if(number < 10){
+    return `0${number}`;
+  }else{
+    return number;
+  }
+}
+
 export default function About() {
   const { isDarkMode, theme } = useTheme();
+  const [voluntaryProjects, setVoluntaryProjects] = useState(0);
+  const [completedProjects, setCompletedProjects] = useState(0);
+  const [experienceYears, setExperienceYears] = useState(0);
+
+  useEffect(() => {
+    const voluntaryInterval = setInterval(() => {
+      if (voluntaryProjects < 2) {
+        setVoluntaryProjects((prev) => prev + 1);
+      } else {
+        clearInterval(voluntaryInterval);
+      }
+    }, 500);
+
+    const completedInterval = setInterval(() => {
+      if (completedProjects < 10) {
+        setCompletedProjects((prev) => prev + 1);
+      } else {
+        clearInterval(completedInterval);
+      }
+    }, 500);
+
+    const experienceInterval = setInterval(() => {
+      if (experienceYears < 1) {
+        setExperienceYears((prev) => prev + 1);
+      } else {
+        clearInterval(experienceInterval);
+      }
+    }, 500);
+
+    return () => {
+      clearInterval(voluntaryInterval);
+      clearInterval(completedInterval);
+      clearInterval(experienceInterval);
+    };
+  }, [voluntaryProjects, completedProjects, experienceYears]);
+
   return (
     <section
       id="about"
@@ -72,19 +117,19 @@ export default function About() {
         <div className="sm:w-[20.5625rem] lg:h-[42rem] xl:w-50  flex  lg:flex-row  gap-8 relative justify-center items-center ">
           <span className="flex flex-col   items-center  sm:block lg:absolute sm:top-5 ">
             <b className="flex font-extrabold text-4xl sm:text-7xl font-main  ">
-              02+
+              {formatarNumero(voluntaryProjects)} +
             </b>
             <p className=" w-[80px] sm:w-full">Projetos Voluntários</p>
           </span>
           <span className="flex flex-col items-center sm:block lg:absolute sm:top-[40%] bottom-[40%] ">
             <b className="flex font-extrabold text-4xl sm:text-7xl font-main  ">
-              10+
+              {formatarNumero(completedProjects)} +
             </b>
             <p className=" w-[80px] sm:w-full">Projetos Concluídos</p>
           </span>
           <span className="flex flex-col items-center sm:block lg:absolute sm:bottom-5 ">
             <b className="flex font-extrabold text-4xl sm:text-7xl font-main  ">
-              01+
+              {formatarNumero(experienceYears)} +
             </b>
             <p className=" w-[80px] sm:w-full">Anos de Experiência</p>
           </span>
