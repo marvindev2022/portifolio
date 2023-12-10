@@ -34,7 +34,7 @@ export default function RenderProjects() {
   const renderImgMaxiTorque = imagesMaxiTorque[currentImage];
   return (
     <section className="w-full h-full flex flex-col justify-center items-center px-32 py-5 font-extrabold ">
-      <h1 className="text-6xl sm:text-[4rem] mb-8 max-w-[50rem] text-center py-5 sm:py-10 ">
+      <h1 className="text-4xl sm:text-6xl sm:text-[4rem] mb-8 max-w-[50rem] text-center py-5 sm:py-10 ">
         A imaginação supera o conhecimento!
       </h1>
       <div className="w-full h-full flex flex-col justify-center items-center mb-20 gap-10 px-10 ">
