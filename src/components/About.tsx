@@ -14,16 +14,16 @@ export default function About() {
         A paixão alimenta o propósito!
       </h1>
 
-      <div className=" flex flex-col lg:flex-row w-[400px] sm:w-full  gap-10 mb-1 mx-auto sm:justify-around sm:items-center overflow-hidden hd:px-[10rem ] sm:py-5 pb-10">
+      <div className=" flex flex-col lg:flex-row w-[400px] sm:w-full  gap-10 xl:gap-[6.5rem] mb-1 mx-auto sm:justify-around sm:items-center overflow-hidden hd:px-[10rem ] sm:py-5 pb-10">
         <div
           className={`flex flex-col   items-start px-5 ${
             isDarkMode ? "text-gray-100" : "text-black"
-          }  md:w-[36.5625rem] md:h-[36.5625rem] `}
+          }  md:w-[33.5625rem] md:h-[36.5625rem] hd:w-[40rem]  `}
         >
-          <h2 className="w-[36.5625rem] text-start   md:text-justify text-2xl font-extrabold my-4">
+          <h2 className="w-[33.5625rem] hd:w-[40rem] text-start   md:text-justify text-2xl font-extrabold my-4">
             Biografia
           </h2>
-          <p className="sm:w-[36.5625rem] text-justify font-medium text-xl">
+          <p className="sm:w-[33.5625rem] hd:w-[40rem] text-justify font-medium text-xl">
             Oi, eu sou{" "}
             <strong className="font-extrabold  font-[inter]">
               Marcus Roza
@@ -33,12 +33,12 @@ export default function About() {
             experiência no campo. Estou sempre à procura de formas novas e
             inovadoras de dar vida às visões dos meus clientes.
           </p>
-          <p className="sm:w-[36.5625rem] text-justify font-medium text-xl my-4">
+          <p className="sm:w-[33.5625rem] hd:w-[40rem] text-justify font-medium text-xl my-4">
             Eu acredito que o design é mais do que apenas fazer as coisas
             parecerem bonitas – é sobre resolver problemas e criar experiências
             intuitivas e agradáveis para os usuários.
           </p>
-          <p className="sm:w-[36.5625rem] text-justify font-medium text-xl">
+          <p className="sm:w-[33.5625rem] hd:w-[40rem] text-justify font-medium text-xl">
             Quer esteja trabalhando em um site, aplicativo móvel ou outro
             produto digital, trago meu compromisso com a excelência em design e
             o pensamento centrado no usuário para cada projeto em que trabalho.
