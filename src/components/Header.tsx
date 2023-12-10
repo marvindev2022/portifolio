@@ -73,7 +73,7 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
       <li
         key={page}
         onClick={() => handlePageClick(page)}
-        className={`cursor-pointer xl:mx-5 md:mx-2 mx-1 ${
+        className={`cursor-pointer text-xl xl:mx-5 md:mx-2 mx-1 font-extrabold font-secondary ${
           selectedPage === page && "underline"
         } hover:underline `}
       >
