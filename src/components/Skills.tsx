@@ -33,16 +33,8 @@ export default function Skills() {
         Skills
       </h1>
       <div
-        style={{
-          background: `repeating-radial-gradient(${
-            isDarkMode ? "hsla(0,0%,100%,.5)" : "hsla(0,0%,0%,.5)"
-          } .125rem, ${isDarkMode ? "#1b1b1b" : "#ffffff"} .5rem, ${
-            isDarkMode ? "#1b1b1b" : "#ffffff"
-          } 6.25rem)`,
-          width: `${100 + 10 * 100}px`,
-          height: `${100 + 10 * 80}px`,
-        }}
-        className="bg-none rounded-[50%] relative mb-[-2.5rem]"
+        
+        className={`w-[68.75rem] h-[56.25rem] rounded-[50%] relative mb-[-40px] ${isDarkMode ? 'bg-gradient-radial-dark': 'bg-gradient-radial'}`}
       >
         {skills.map((skill, index) => {
           const { styleInitial, styleFinal } = skill as {
