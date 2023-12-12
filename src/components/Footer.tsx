@@ -11,21 +11,22 @@ export default function Footer({ active, scrollToTop }: Prop) {
   const [assignature, setAssignature] = useState("");
 
   useEffect(() => {
-    const assignatureText = "Marcus Roza";
+    const assignatureText = "Maarcus Roza";
     let currentIndex = 0;
 
     const assignatureInterval = setInterval(() => {
-      setAssignature((prevAssignature) => {
-        const currentLetter = assignatureText[currentIndex];
-        currentIndex = (currentIndex + 1) % assignatureText.length;
-        return prevAssignature + currentLetter;
-      });
+      setAssignature((prev) => prev + assignatureText[currentIndex]);
+      currentIndex++;
+      if (currentIndex === assignatureText.length -1) {
+        clearInterval(assignatureInterval);
+      }
     }, 500);
-
+  if(currentIndex >= assignatureText.length) clearInterval(assignatureInterval)
     return () => {
       clearInterval(assignatureInterval);
     };
   }, []);
+  
   return (
     <footer className="w-screen  flex flex-col lg:h-10 sm:flex-row  items-center  justify-center border-t-2  relative pt-5 lg:pt-12 ">
       {scrollToTop && <ScrollToTopButton />}
