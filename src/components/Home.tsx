@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useTheme } from "../context/theme";
 import icon from "./../assets/icon.svg";
 import iconDark from "./../assets/iconDark.svg";
@@ -8,19 +7,6 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   const { isDarkMode } = useTheme();
-  useEffect(() => {
-    const assignatureInterval = setInterval(() => {
-      const assignature = document.getElementById("assignature");
-      if (assignature) {
-        assignature.style.opacity = "1";
-        clearInterval(assignatureInterval);
-      }
-    }, 500);
-    return () => {
-      clearInterval(assignatureInterval);
-    };
-  }, []);
-
   return (
     <>
       <section className="flex flex-col md:flex-row items-center justify-between min-h-[90vh] px-4 md:px-32 relative mb-5 sm-mb-0">
@@ -45,16 +31,10 @@ export default function Home() {
             <Link
               to="https://docs.google.com/document/d/10aU8ROLUuQvDvtoNuJvvC8p1GKYZJQrWzwO8fJKWLjQ/edit?usp=sharing"
               target="_blank"
-              className={`flex items-center justify-center gap-2 w-[9.5rem] sm:w-[14.5rem] lg:w-[9.5rem] md:w-[9.5rem] h-14 ${
-                isDarkMode ? " bg-white text-dark" : " bg-dark text-white"
-              } rounded-md mr-5 border`}
+              className={`flex items-center justify-center gap-2 w-[9.5rem] sm:w-[14.5rem] lg:w-[9.5rem] md:w-[9.5rem] h-14 ${isDarkMode ? ' bg-white text-dark' : ' bg-dark text-white'} rounded-md mr-5 border`}
             >
-              <p>Curriculo</p>
-              <img
-                className="w-8 h-8"
-                src={isDarkMode ? iconDark : icon}
-                alt="icon"
-              />
+              <p >Curriculo</p>
+              <img className="w-8 h-8" src={isDarkMode ? iconDark : icon} alt="icon" />
             </Link>
             <Link
               to="https://api.whatsapp.com/send?phone=5521964642376"
