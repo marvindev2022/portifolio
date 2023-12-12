@@ -4,7 +4,7 @@ import RenderDialog from "./DialogMenu";
 import { useTheme } from "../context/theme";
 
 const colorClasses = [
-  "bg-dark",
+  "bg-black",
   "bg-red-500",
   "bg-blue-500",
   "bg-green-500",
@@ -16,8 +16,8 @@ const colorClasses = [
 ];
 
 const Header = ({ selectedPage, setSelectedPage }: any) => {
+  const { isDarkMode } = useTheme();
   const [colorIndex, setColorIndex] = useState(0);
-  const {isDarkMode} = useTheme();
   const handleMouseEnter = () => {
     const colorChangeInterval = setInterval(() => {
       setColorIndex((prevIndex) => (prevIndex + 1) % colorClasses.length);
@@ -27,7 +27,7 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
       const colorChangeDiv = document.getElementById("color-change-div");
       if (colorChangeDiv) {
         colorChangeDiv.classList.remove(...colorClasses);
-        colorChangeDiv.classList.add("bg-dark");
+        colorChangeDiv.classList.add(isDarkMode ?  "bg-black" : "bg-white" );
       }
     };
 
@@ -103,10 +103,14 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
 
       <span
         id="color-change-div"
-        className={`w-16 h-16 mt-2 flex justify-center items-center rounded-[50%] border-2 ${isDarkMode ? 'bg-black  border-white ' : 'bg-light  border-dark text-black'} font-[900]  hover:${colorClasses} text-[1.3rem] `}
+        className={`w-16 h-16 mt-2 flex justify-center items-center rounded-[50%] border-2 ${
+          isDarkMode
+            ? "bg-black  border-white "
+            : "bg-light  border-dark text-black"
+        } font-[900]  hover:${colorClasses} text-[1.3rem] `}
         onMouseEnter={handleMouseEnter}
       >
-        MR
+        {"</>"}
       </span>
 
       <span className="hidden lg:block">

@@ -10,7 +10,7 @@ export default function HireMe() {
     <Link
       to="https://web.whatsapp.com/send/?phone=5521964642376"
       target="_blank"
-      className="hidden md:block w-auto  top-[-7rem] rounded-[50%]  absolute md:top-[-16rem] md:right-[1.9375rem]"
+      className="hidden md:block w-auto  top-[-7rem] rounded-[50%]  absolute md:top-[-14rem] xl:top-[-14rem] hd:top-[-22rem] md:right-[1.9375rem]"
     >
       <motion.div
         initial={{ rotate: 0 }}

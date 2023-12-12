@@ -25,6 +25,7 @@ function App() {
           setSelectedPage={handleSetSelectedPage}
         />
         <PageTransition children={pages[selectedPage]} />
+        
       </ThemeProvider>
     </main>
   );

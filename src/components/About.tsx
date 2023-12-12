@@ -4,10 +4,10 @@ import { useTheme } from "../context/theme";
 import Footer from "./Footer";
 import Skills from "./Skills";
 
-function formatarNumero(number:number) {
-  if(number < 10){
+function formatarNumero(number: number) {
+  if (number < 10) {
     return `0${number}`;
-  }else{
+  } else {
     return number;
   }
 }
@@ -53,7 +53,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="w-full min-h-full text-center xl:text-justify h-full md:flex md:flex-col  md:items-center pt-10 md:px-32 xl:px-10 hd:px-20"
+      className="w-full min-h-full text-center xl:text-justify h-full md:flex md:flex-col  md:items-center pt-10 md:px-32 xl:px-10 hd:px-20 relative"
     >
       <h1 className="mx-auto text-center sm:text-justify px-5 text-7xl font-extrabold mb-20 ">
         A paixão alimenta o propósito!
@@ -136,7 +136,7 @@ export default function About() {
         </div>
       </div>
       <Skills />
-      <Footer />
+      <Footer scrollToTop={true} />
     </section>
   );
 }

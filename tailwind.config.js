@@ -11,15 +11,10 @@ export default {
         xl: "80rem",
         hd: "90.01rem",
       },
-      height: {
-        hsm: "20rem",
-        hmd: "24rem",
-        hlg: "32rem",
-        hxl: "40rem",
-      },
+      
 
       colors: {
-       dark: "#1A1A1A", 
+       dark: "#1b1b1b", 
        light: "#FFFFFF",
 
       },
@@ -33,6 +28,7 @@ export default {
         main: ["Lobster"],
         special: ["Fira Sans"],
         secondary: ["Inter"],
+        assinature:["Great Vibes"]
       },
     },
     
