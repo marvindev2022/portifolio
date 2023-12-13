@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { skills } from "../data/skills";
-import { useTheme } from "../context/theme";
+import { useContextPage } from "../context";
 
 export default function Skills() {
   const [scrollProgress, setScrollProgress] = useState(0);
-  const { isDarkMode } = useTheme();
+  const { isDarkMode } = useContextPage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,8 +33,9 @@ export default function Skills() {
         Skills
       </h1>
       <div
-        
-        className={`w-[68.75rem] h-[56.25rem] rounded-[50%] relative mb-[-40px] ${isDarkMode ? 'bg-gradient-radial-dark': 'bg-gradient-radial'}`}
+        className={`w-[68.75rem] h-[56.25rem] rounded-[50%] relative mb-[-40px] ${
+          isDarkMode ? "bg-gradient-radial-dark" : "bg-gradient-radial"
+        }`}
       >
         {skills.map((skill, index) => {
           const { styleInitial, styleFinal } = skill as {

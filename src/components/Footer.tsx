@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useTheme } from "../context/theme";
+import { useContextPage } from "../context";
 import HireMe from "./HireMe";
 import ScrollToTopButton from "./ScrollToTopButton";
 interface Prop {
@@ -7,7 +7,7 @@ interface Prop {
   scrollToTop?: Boolean;
 }
 export default function Footer({ active, scrollToTop }: Prop) {
-  const { isDarkMode } = useTheme();
+  const { isDarkMode } = useContextPage();
   const [assignature, setAssignature] = useState("");
 
   useEffect(() => {
@@ -17,16 +17,17 @@ export default function Footer({ active, scrollToTop }: Prop) {
     const assignatureInterval = setInterval(() => {
       setAssignature((prev) => prev + assignatureText[currentIndex]);
       currentIndex++;
-      if (currentIndex === assignatureText.length -1) {
+      if (currentIndex === assignatureText.length - 1) {
         clearInterval(assignatureInterval);
       }
     }, 500);
-  if(currentIndex >= assignatureText.length) clearInterval(assignatureInterval)
+    if (currentIndex >= assignatureText.length)
+      clearInterval(assignatureInterval);
     return () => {
       clearInterval(assignatureInterval);
     };
   }, []);
-  
+
   return (
     <footer className="w-screen  flex flex-col lg:h-10 sm:flex-row  items-center  justify-center border-t-2  relative pt-5 lg:pt-12 ">
       {scrollToTop && <ScrollToTopButton />}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Nav from "./Nav";
 import RenderDialog from "./DialogMenu";
-import { useTheme } from "../context/theme";
+import { useContextPage } from "../context";
 
 const colorClasses = [
   "bg-black",
@@ -15,9 +15,10 @@ const colorClasses = [
   "bg-indigo-500",
 ];
 
-const Header = ({ selectedPage, setSelectedPage }: any) => {
-  const { isDarkMode } = useTheme();
+const Header = () => {
+  const { isDarkMode, selectedPage, setSelectedPage} = useContextPage();
   const [colorIndex, setColorIndex] = useState(0);
+
   const handleMouseEnter = () => {
     const colorChangeInterval = setInterval(() => {
       setColorIndex((prevIndex) => (prevIndex + 1) % colorClasses.length);
@@ -27,7 +28,7 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
       const colorChangeDiv = document.getElementById("color-change-div");
       if (colorChangeDiv) {
         colorChangeDiv.classList.remove(...colorClasses);
-        colorChangeDiv.classList.add(isDarkMode ?  "bg-black" : "bg-white" );
+        colorChangeDiv.classList.add(isDarkMode ? "bg-black" : "bg-white");
       }
     };
 
@@ -54,7 +55,6 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
   const toggleMobileMenu = () => {
     const dialog = document.querySelector("dialog");
     const open = dialog?.open;
-    console.log(open);
     if (!open) {
       dialog?.showModal();
     } else {
@@ -69,7 +69,7 @@ const Header = ({ selectedPage, setSelectedPage }: any) => {
   };
 
   const renderNavLinks = () => {
-    return ["Home", "Sobre", "Projetos"].map((page) => (
+    return ["Home", "Sobre", "Projetos",].map((page) => (
       <li
         key={page}
         onClick={() => handlePageClick(page)}

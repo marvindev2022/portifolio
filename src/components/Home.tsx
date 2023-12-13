@@ -1,4 +1,4 @@
-import { useTheme } from "../context/theme";
+import { useContextPage } from "../context";
 import icon from "./../assets/icon.svg";
 import iconDark from "./../assets/iconDark.svg";
 
@@ -6,7 +6,7 @@ import Footer from "./Footer";
 import { Link } from "react-router-dom";
 
 export default function Home() {
-  const { isDarkMode } = useTheme();
+  const { isDarkMode, setSelectedPage } = useContextPage();
   return (
     <>
       <section className="flex flex-col md:flex-row items-center justify-between min-h-[90vh] px-4 md:px-32 relative mb-5 sm-mb-0">
@@ -31,18 +31,23 @@ export default function Home() {
             <Link
               to="https://docs.google.com/document/d/10aU8ROLUuQvDvtoNuJvvC8p1GKYZJQrWzwO8fJKWLjQ/edit?usp=sharing"
               target="_blank"
-              className={`flex items-center justify-center gap-2 w-[9.5rem] sm:w-[14.5rem] lg:w-[9.5rem] md:w-[9.5rem] h-14 ${isDarkMode ? ' bg-white text-dark' : ' bg-dark text-white'} rounded-md mr-5 border`}
+              className={`flex items-center justify-center gap-2 w-[9.5rem] sm:w-[14.5rem] lg:w-[9.5rem] md:w-[9.5rem] h-14 ${
+                isDarkMode ? " bg-white text-dark" : " bg-dark text-white"
+              } rounded-md mr-5 border`}
             >
-              <p >Curriculo</p>
-              <img className="w-8 h-8" src={isDarkMode ? iconDark : icon} alt="icon" />
+              <p>Curriculo</p>
+              <img
+                className="w-8 h-8"
+                src={isDarkMode ? iconDark : icon}
+                alt="icon"
+              />
             </Link>
-            <Link
-              to="https://api.whatsapp.com/send?phone=5521964642376"
-              target="_blank"
+            <button
+              onClick={() => setSelectedPage("Contact")}
               className="flex items-center justify-center text-center w-[9.5rem] sm:w-[14.5rem] lg:w-[9.5rem] md:w-[9.5rem] h-14 underline  bg-none rounded-md"
             >
               Contato
-            </Link>
+            </button>
           </span>
         </div>
       </section>

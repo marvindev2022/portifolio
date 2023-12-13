@@ -1,4 +1,4 @@
-import { useTheme } from "../context/theme";
+import { useContextPage } from "../context";
 import NavDialog from "./Nav Dialog";
 
 interface PropsDialog {
@@ -10,7 +10,7 @@ export default function RenderDialog({
   toggleMobileMenu,
   renderNavLinks,
 }: PropsDialog) {
-  const { isDarkMode } = useTheme();
+  const { isDarkMode } = useContextPage();
   return (
     <dialog
       className={`top-0 left-0 min-w-[100vw] w-full min-h-screen lg:hidden ${
@@ -33,7 +33,11 @@ export default function RenderDialog({
           >
             {"X"}
           </strong>
-          <ul className={`flex h-1/2 justify-center items-center flex-col gap-5 ${ isDarkMode ? "text-dark" : "text-light"} `}>
+          <ul
+            className={`flex h-1/2 justify-center items-center flex-col gap-5 ${
+              isDarkMode ? "text-dark" : "text-light"
+            } `}
+          >
             {renderNavLinks()}
           </ul>
           <NavDialog />

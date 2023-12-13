@@ -10,7 +10,7 @@ import maxitorque3 from "../assets/maxitorque/Captura de tela de 2023-12-06 16-5
 import Footer from "./Footer";
 import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCards";
-import { useTheme } from "../context/theme";
+import { useContextPage } from "../context";
 const size = window.innerWidth < 768;
 
 export default function RenderProjects() {
@@ -18,7 +18,7 @@ export default function RenderProjects() {
   const imagesBTM = [backtome1, backtome2, backtome3];
   const imagesSabores = [sabores1, sabores2, sabores3];
   const imagesMaxiTorque = [maxitorque1, maxitorque2, maxitorque3];
-  const { isDarkMode } = useTheme();
+  const { isDarkMode } = useContextPage();
 
   useEffect(() => {
     if (size) return;

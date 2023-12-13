@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { useTheme } from "../context/theme";
+import { useContextPage } from "../context";
 
 function ScrollToTopButton() {
-  const { isDarkMode } = useTheme();
+  const { isDarkMode } = useContextPage();
   const [isVisible, setIsVisible] = useState(false);
 
   const scrollFunction = () => {

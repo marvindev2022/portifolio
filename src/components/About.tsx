@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import image from "../assets/profile.png";
-import { useTheme } from "../context/theme";
+import { useContextPage } from "../context";
 import Footer from "./Footer";
 import Skills from "./Skills";
 
@@ -13,7 +13,7 @@ function formatarNumero(number: number) {
 }
 
 export default function About() {
-  const { isDarkMode, theme } = useTheme();
+  const { isDarkMode, theme } = useContextPage();
   const [voluntaryProjects, setVoluntaryProjects] = useState(0);
   const [completedProjects, setCompletedProjects] = useState(0);
   const [experienceYears, setExperienceYears] = useState(0);
