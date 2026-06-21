@@ -32,6 +32,7 @@ const FEATURED = [
 function MagneticBtn({
   children,
   className,
+  style,
   onClick,
   href,
   target,
@@ -39,6 +40,7 @@ function MagneticBtn({
 }: {
   children: React.ReactNode;
   className: string;
+  style?: React.CSSProperties;
   onClick?: () => void;
   href?: string;
   target?: string;
@@ -53,7 +55,7 @@ function MagneticBtn({
         target={target}
         rel={rel}
         className={className}
-        style={{ x: sx, y: sy }}
+        style={{ x: sx, y: sy, ...style }}
         onMouseMove={onMove}
         onMouseLeave={onLeave}
       >
@@ -64,7 +66,7 @@ function MagneticBtn({
   return (
     <motion.button
       className={className}
-      style={{ x: sx, y: sy }}
+      style={{ x: sx, y: sy, ...style }}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       onClick={onClick}
@@ -115,7 +117,10 @@ export default function Home() {
 
           <h1 className="text-5xl sm:text-6xl xl:text-7xl font-black leading-[1.05] mb-6 tracking-tight whitespace-nowrap">
             Marcus{" "}
-            <span className={isDarkMode ? "text-accent-light" : "text-accent"}>
+            <span style={{
+              color: isDarkMode ? "#22d3ee" : "#3b82f6",
+              textShadow: isDarkMode ? "0 0 28px rgba(34,211,238,0.35)" : "none",
+            }}>
               Roza.
             </span>
           </h1>
@@ -136,7 +141,11 @@ export default function Home() {
           <div className="flex items-center gap-3 flex-wrap mb-8">
             <MagneticBtn
               onClick={() => setSelectedPage("Projetos")}
-              className="px-6 py-3 bg-accent hover:bg-accent-light text-white rounded-lg font-semibold text-sm transition-colors duration-150 cursor-pointer"
+              className="px-6 py-3 text-white rounded-lg font-semibold text-sm transition-all duration-150 cursor-pointer"
+              style={{
+                background: isDarkMode ? "#22d3ee" : "#3b82f6",
+                boxShadow: isDarkMode ? "0 0 18px rgba(34,211,238,0.25)" : "none",
+              }}
             >
               Ver projetos
             </MagneticBtn>

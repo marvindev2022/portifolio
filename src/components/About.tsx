@@ -61,7 +61,10 @@ export default function About() {
             <p className={`text-xs font-mono uppercase tracking-widest mb-3 ${dimText}`}>Sobre</p>
             <h1 className="text-4xl sm:text-5xl font-black mb-6 tracking-tight leading-tight whitespace-nowrap">
               Engenheiro{" "}
-              <span className={isDarkMode ? "text-accent-light" : "text-accent"}>full-cycle.</span>
+              <span style={{
+                color: isDarkMode ? "#22d3ee" : "#3b82f6",
+                textShadow: isDarkMode ? "0 0 24px rgba(34,211,238,0.3)" : "none",
+              }}>full-cycle.</span>
             </h1>
 
             <div className={`space-y-3 text-sm leading-relaxed ${mutedText} mb-6`}>
