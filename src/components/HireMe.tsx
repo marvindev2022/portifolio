@@ -8,7 +8,7 @@ export default function HireMe() {
   const { isDarkMode } = useContextPage();
   return (
     <Link
-      to="https://web.whatsapp.com/send/?phone=5521964642376"
+      to="https://web.whatsapp.com/send/?phone=5521993342879"
       target="_blank"
       className="hidden md:block w-auto  top-[-7rem] rounded-[50%]  absolute md:top-[-14rem] xl:top-[-14rem] hd:top-[-22rem] md:right-[1.9375rem]"
     >

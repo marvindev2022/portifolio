@@ -1,141 +1,162 @@
-import { useEffect, useState } from "react";
-import image from "../assets/profile.png";
+import { useRef } from "react";
 import { useContextPage } from "../context";
 import Footer from "./Footer";
 import Skills from "./Skills";
+import ParticleCanvas from "./ParticleCanvas";
 
-function formatarNumero(number: number) {
-  if (number < 10) {
-    return `0${number}`;
-  } else {
-    return number;
-  }
-}
+const EXPERIENCE = {
+  company: "Clarke Energy",
+  role: "Engenheiro de Software",
+  period: "2022 – presente",
+  highlights: [
+    "Subgraphs GraphQL em Apollo Federation v2 — FastAPI + Flask",
+    "Workers Celery em Kubernetes (GKE) — projeções tarifárias ACL",
+    "Frontends React 18 + TypeScript integrados a ~20 microserviços",
+    "Calculadora de energia + relatórios regulatórios em produção",
+  ],
+};
+
+const PERSONAL = [
+  { name: "TreinoZap", detail: "SaaS p/ personal trainers — PWA, WhatsApp, push VAPID, Realtime.", color: "#6366f1" },
+  { name: "Oficina Mecânica", detail: "Multi-tenant OS — portal por token UUID, chat RT, Storage. 2 clientes.", color: "#f59e0b" },
+  { name: "PDV Auto-Peças", detail: "Ponto de venda — catálogo, carrinho, estoque via RPCs atômicos.", color: "#3b82f6" },
+];
+
+const STATS = [
+  { value: "3+", label: "anos na Clarke" },
+  { value: "3", label: "SaaS como produto" },
+  { value: "6+", label: "projetos em prod." },
+  { value: "2", label: "clientes na Oficina" },
+];
 
 export default function About() {
-  const { isDarkMode, theme } = useContextPage();
-  const [voluntaryProjects, setVoluntaryProjects] = useState(0);
-  const [completedProjects, setCompletedProjects] = useState(0);
-  const [experienceYears, setExperienceYears] = useState(0);
+  const { isDarkMode } = useContextPage();
+  const mouseRef = useRef<{ x: number; y: number }>({ x: -9999, y: -9999 });
 
-  useEffect(() => {
-    const voluntaryInterval = setInterval(() => {
-      if (voluntaryProjects < 2) {
-        setVoluntaryProjects((prev) => prev + 1);
-      } else {
-        clearInterval(voluntaryInterval);
-      }
-    }, 500);
+  const mutedText = isDarkMode ? "text-muted" : "text-zinc-500";
+  const dimText = isDarkMode ? "text-muted-dark" : "text-zinc-400";
+  const divider = isDarkMode ? "border-border" : "border-zinc-200";
+  const cardBg = isDarkMode ? "bg-card border border-border" : "bg-zinc-50 border border-zinc-200";
+  const tagBg = isDarkMode ? "bg-surface border border-border text-muted-dark" : "bg-white border border-zinc-200 text-zinc-500";
 
-    const completedInterval = setInterval(() => {
-      if (completedProjects < 10) {
-        setCompletedProjects((prev) => prev + 1);
-      } else {
-        clearInterval(completedInterval);
-      }
-    }, 500);
-
-    const experienceInterval = setInterval(() => {
-      if (experienceYears < 1) {
-        setExperienceYears((prev) => prev + 1);
-      } else {
-        clearInterval(experienceInterval);
-      }
-    }, 500);
-
-    return () => {
-      clearInterval(voluntaryInterval);
-      clearInterval(completedInterval);
-      clearInterval(experienceInterval);
-    };
-  }, [voluntaryProjects, completedProjects, experienceYears]);
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    mouseRef.current = { x: e.clientX, y: e.clientY };
+  };
+  const handleMouseLeave = () => { mouseRef.current = { x: -9999, y: -9999 }; };
 
   return (
     <section
-      id="about"
-      className="w-full min-h-full text-center xl:text-justify h-full md:flex md:flex-col  md:items-center pt-10 md:px-32 xl:px-10 hd:px-20 relative"
+      className={`relative w-full overflow-hidden ${isDarkMode ? "text-light" : "text-dark"}`}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
-      <h1 className="mx-auto text-center sm:text-justify px-5 text-7xl font-extrabold mb-20 ">
-        A paixão alimenta o propósito!
-      </h1>
+      <ParticleCanvas isDarkMode={isDarkMode} mouseRef={mouseRef} />
 
-      <div className=" flex flex-col lg:flex-row w-[400px] sm:w-full  gap-10 xl:gap-[6.5rem] mb-1 mx-auto sm:justify-around sm:items-center overflow-hidden hd:px-[10rem ] sm:py-5 pb-10">
-        <div
-          className={`flex flex-col   items-start px-5 ${
-            isDarkMode ? "text-gray-100" : "text-black"
-          }  md:w-[33.5625rem] md:h-[36.5625rem] hd:w-[40rem]  `}
-        >
-          <h2 className="w-[33.5625rem] hd:w-[40rem] text-start   md:text-justify text-2xl font-extrabold my-4">
-            Biografia
-          </h2>
-          <p className="sm:w-[33.5625rem] hd:w-[40rem] text-justify font-medium text-xl">
-            Oi, eu sou{" "}
-            <strong className="font-extrabold  font-[inter]">
-              Marcus Roza
-            </strong>
-            , um desenvolvedor de software web com paixão por criar experiências
-            digitais bonitas, funcionais e centradas no usuário. Com 1 ano de
-            experiência no campo. Estou sempre à procura de formas novas e
-            inovadoras de dar vida às visões dos meus clientes.
-          </p>
-          <p className="sm:w-[33.5625rem] hd:w-[40rem] text-justify font-medium text-xl my-4">
-            Eu acredito que o design é mais do que apenas fazer as coisas
-            parecerem bonitas – é sobre resolver problemas e criar experiências
-            intuitivas e agradáveis para os usuários.
-          </p>
-          <p className="sm:w-[33.5625rem] hd:w-[40rem] text-justify font-medium text-xl">
-            Quer esteja trabalhando em um site, aplicativo móvel ou outro
-            produto digital, trago meu compromisso com a excelência em design e
-            o pensamento centrado no usuário para cada projeto em que trabalho.
-            Estou ansioso para a oportunidade de trazer minhas habilidades e
-            paixão para o seu próximo projeto.
-          </p>
-        </div>
-        <div
-          className={`w-[21.5rem] m-auto h-[32rem] sm:w-[27.5rem] sm:h-[42rem] xl:w-[93rem] hd:w-[31.5rem] col-span-3 rounded-2xl rounded-bl-[5%] rounded-t-r-[10%] rounded-b-r-[10%] border-2 border-solid ${
-            isDarkMode ? "bg-light border-dark" : "bg-dark border-white"
-          } pl-[.0625rem] pt-[.0625rem] pb-2 pr-1 xl:col-span-4  relative  `}
-        >
-          <div
-            className={`mt-[-0.5rem] ml-[-.1rem] flex justify-center items-center w-full h-full  border-2 ${
-              isDarkMode ? "bg-dark border-white" : "bg-light border-dark"
-            } rounded-2xl `}
-          >
-            <div
-              className={`w-full h-full bg-gradient-to-b from-[${
-                isDarkMode ? "#0000007b" : "#ffffffff"
-              }] via-transparent to-${theme} rounded-2 `}
-            >
-              <img
-                src={image}
-                alt="Marcus Roza"
-                className="w-[18rem] h-[22rem] md:w-[26rem] md:h-[30rem]  hd:w-[28rem] hd:h-[32rem] rounded-[50%] absolute top-16 left-5 sm:left-6 md:left-6 lg:left-5 xl:left-14 hd:left-6  "
-              />
+      {/* Bio + Experience — first viewport */}
+      <div className="relative z-10 px-6 md:px-16 xl:px-32 pt-12 pb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16">
+
+          {/* Left — bio */}
+          <div className="flex flex-col">
+            <p className={`text-xs font-mono uppercase tracking-widest mb-3 ${dimText}`}>Sobre</p>
+            <h1 className="text-4xl sm:text-5xl font-black mb-6 tracking-tight leading-tight whitespace-nowrap">
+              Engenheiro{" "}
+              <span className={isDarkMode ? "text-accent-light" : "text-accent"}>full-cycle.</span>
+            </h1>
+
+            <div className={`space-y-3 text-sm leading-relaxed ${mutedText} mb-6`}>
+              <p>
+                Trabalho na{" "}
+                <span className={isDarkMode ? "text-light font-medium" : "text-dark font-medium"}>Clarke Energy</span>
+                {" "}— maior plataforma de migração para o mercado livre de energia do Brasil — construindo a infraestrutura de software para análises tarifárias, relatórios e contratos.
+              </p>
+              <p>
+                Meu diferencial é o{" "}
+                <span className={isDarkMode ? "text-light font-medium" : "text-dark font-medium"}>ciclo completo</span>
+                : do problema ao código em produção — arquitetura, implementação, deploy e monitoração.
+              </p>
+              <p>
+                Fora da Clarke, construo SaaS como produto real — com clientes, receita e roadmap.
+              </p>
+            </div>
+
+            <p className={`text-xs font-mono uppercase tracking-widest mb-3 ${dimText}`}>Projetos próprios</p>
+            <div className="space-y-2">
+              {PERSONAL.map((p) => (
+                <div key={p.name} className={`rounded-xl p-3 ${cardBg}`} style={{ borderLeft: `2px solid ${p.color}` }}>
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <span className="text-sm font-bold">{p.name}</span>
+                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded" style={{ color: p.color, background: `${p.color}18` }}>live</span>
+                  </div>
+                  <p className={`text-xs leading-relaxed ${mutedText}`}>{p.detail}</p>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-        <div className="sm:w-[20.5625rem] lg:h-[42rem] xl:w-50  flex  lg:flex-row  gap-8 relative justify-center items-center ">
-          <span className="flex flex-col   items-center  sm:block lg:absolute sm:top-5 ">
-            <b className="flex font-extrabold text-4xl sm:text-7xl font-main  ">
-              {formatarNumero(voluntaryProjects)} +
-            </b>
-            <p className=" w-[80px] sm:w-full">Projetos Voluntários</p>
-          </span>
-          <span className="flex flex-col items-center sm:block lg:absolute sm:top-[40%] bottom-[40%] ">
-            <b className="flex font-extrabold text-4xl sm:text-7xl font-main  ">
-              {formatarNumero(completedProjects)} +
-            </b>
-            <p className=" w-[80px] sm:w-full">Projetos Concluídos</p>
-          </span>
-          <span className="flex flex-col items-center sm:block lg:absolute sm:bottom-5 ">
-            <b className="flex font-extrabold text-4xl sm:text-7xl font-main  ">
-              {formatarNumero(experienceYears)} +
-            </b>
-            <p className=" w-[80px] sm:w-full">Anos de Experiência</p>
-          </span>
+
+          {/* Right — experience + stats + stack */}
+          <div className="flex flex-col justify-between">
+            <div>
+              <p className={`text-xs font-mono uppercase tracking-widest mb-3 ${dimText}`}>Experiência</p>
+              <div className={`rounded-xl p-5 ${cardBg} mb-5`}>
+                <div className="flex items-start justify-between gap-3 mb-3">
+                  <div>
+                    <p className="font-bold text-sm mb-0.5">{EXPERIENCE.company}</p>
+                    <p className={`text-xs ${mutedText}`}>{EXPERIENCE.role}</p>
+                  </div>
+                  <span className={`text-xs font-mono px-2 py-1 rounded whitespace-nowrap flex-shrink-0 ${tagBg}`}>
+                    {EXPERIENCE.period}
+                  </span>
+                </div>
+                <ul className="space-y-1.5">
+                  {EXPERIENCE.highlights.map((h, i) => (
+                    <li key={i} className={`flex gap-2 text-xs ${mutedText}`}>
+                      <span className={`flex-shrink-0 ${isDarkMode ? "text-accent-light" : "text-accent"}`} aria-hidden>→</span>
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <p className={`text-xs font-mono uppercase tracking-widest mb-3 ${dimText}`}>Números</p>
+              <div className="grid grid-cols-2 gap-2 mb-5">
+                {STATS.map(({ value, label }) => (
+                  <div key={label} className={`rounded-xl p-3 ${cardBg}`}>
+                    <p className="text-2xl font-black tracking-tight mb-0.5">{value}</p>
+                    <p className={`text-xs font-mono ${dimText}`}>{label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Stack principal — preenche espaço restante */}
+            <div>
+              <p className={`text-xs font-mono uppercase tracking-widest mb-3 ${dimText}`}>Stack principal</p>
+              <div className="flex flex-wrap gap-1.5">
+                {[
+                  "React 18", "TypeScript", "Python", "FastAPI", "GraphQL",
+                  "Supabase", "PostgreSQL", "Celery", "Kubernetes", "Docker",
+                  "Turborepo", "Vite", "Tailwind CSS", "Apollo Federation",
+                ].map((tag) => (
+                  <span
+                    key={tag}
+                    className={`px-2 py-1 rounded text-[11px] font-mono ${tagBg}`}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <Skills />
+
+      {/* Skills */}
+      <div className={`relative z-10 border-t ${divider}`}>
+        <Skills />
+      </div>
+
       <Footer scrollToTop={true} />
     </section>
   );

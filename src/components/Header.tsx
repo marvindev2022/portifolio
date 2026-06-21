@@ -1,56 +1,9 @@
-import { useState, useEffect } from "react";
 import Nav from "./Nav";
 import RenderDialog from "./DialogMenu";
 import { useContextPage } from "../context";
 
-const colorClasses = [
-  "bg-black",
-  "bg-red-500",
-  "bg-blue-500",
-  "bg-green-500",
-  "bg-orange-500",
-  "bg-purple-500",
-  "bg-pink-500",
-  "bg-w-500",
-  "bg-indigo-500",
-];
-
 const Header = () => {
   const { isDarkMode, selectedPage, setSelectedPage} = useContextPage();
-  const [colorIndex, setColorIndex] = useState(0);
-
-  const handleMouseEnter = () => {
-    const colorChangeInterval = setInterval(() => {
-      setColorIndex((prevIndex) => (prevIndex + 1) % colorClasses.length);
-    }, 100);
-
-    const resetColorChangeDiv = () => {
-      const colorChangeDiv = document.getElementById("color-change-div");
-      if (colorChangeDiv) {
-        colorChangeDiv.classList.remove(...colorClasses);
-        colorChangeDiv.classList.add(isDarkMode ? "bg-black" : "bg-white");
-      }
-    };
-
-    document
-      .getElementById("color-change-div")
-      ?.addEventListener("mouseleave", () => {
-        clearInterval(colorChangeInterval);
-        resetColorChangeDiv();
-      });
-  };
-
-  useEffect(() => {
-    const colorChangeDiv = document.getElementById("color-change-div");
-    if (colorChangeDiv) {
-      colorChangeDiv.classList.replace(
-        colorClasses[
-          (colorIndex - 1 + colorClasses.length) % colorClasses.length
-        ],
-        colorClasses[colorIndex]
-      );
-    }
-  }, [colorIndex]);
 
   const toggleMobileMenu = () => {
     const dialog = document.querySelector("dialog");
@@ -68,16 +21,27 @@ const Header = () => {
     dialog?.close();
   };
 
+  const navItems: { key: string; label: string }[] = [
+    { key: "Home", label: "Home" },
+    { key: "Sobre", label: "Sobre" },
+    { key: "Projetos", label: "Projetos" },
+    { key: "Contact", label: "Contato" },
+  ];
+
   const renderNavLinks = () => {
-    return ["Home", "Sobre", "Projetos",].map((page) => (
+    return navItems.map(({ key, label }) => (
       <li
-        key={page}
-        onClick={() => handlePageClick(page)}
-        className={`cursor-pointer text-xl xl:mx-5 md:mx-2 mx-1 font-extrabold font-secondary ${
-          selectedPage === page && "underline"
-        } hover:underline `}
+        key={key}
+        onClick={() => handlePageClick(key)}
+        className={`cursor-pointer text-base xl:mx-5 md:mx-3 mx-1 font-semibold transition-colors duration-150 ${
+          selectedPage === key
+            ? "text-accent-light"
+            : isDarkMode
+            ? "text-muted hover:text-light"
+            : "text-zinc-500 hover:text-dark"
+        }`}
       >
-        {page.charAt(0).toUpperCase() + page.slice(1)}
+        {label}
       </li>
     ));
   };
@@ -102,15 +66,11 @@ const Header = () => {
       </nav>
 
       <span
-        id="color-change-div"
-        className={`w-16 h-16 mt-2 flex justify-center items-center rounded-[50%] border-2 ${
-          isDarkMode
-            ? "bg-black  border-white "
-            : "bg-light  border-dark text-black"
-        } font-[900]  hover:${colorClasses} text-[1.3rem] `}
-        onMouseEnter={handleMouseEnter}
+        className={`font-mono text-sm font-bold select-none ${
+          isDarkMode ? "text-accent-light" : "text-accent"
+        }`}
       >
-        {"</>"}
+        {"<MR />"}
       </span>
 
       <span className="hidden lg:block">

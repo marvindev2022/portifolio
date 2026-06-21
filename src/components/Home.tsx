@@ -1,55 +1,236 @@
+import { useRef } from "react";
+import { motion } from "framer-motion";
 import { useContextPage } from "../context";
-import icon from "./../assets/icon.svg";
-import iconDark from "./../assets/iconDark.svg";
-
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
+import ParticleCanvas from "./ParticleCanvas";
+import { useMagnetic } from "../hooks/useMagnetic";
+
+const FEATURED = [
+  {
+    name: "TreinoZap",
+    sub: "SaaS · personal trainers",
+    badge: "Em produção",
+    color: "#6366f1",
+    tech: "React · Supabase · PWA",
+  },
+  {
+    name: "Oficina Mecânica",
+    sub: "SaaS · mecânicas multi-tenant",
+    badge: "2 clientes",
+    color: "#f59e0b",
+    tech: "React · Supabase · Realtime",
+  },
+  {
+    name: "PDV Auto-Peças",
+    sub: "Sistema de ponto de venda",
+    badge: "Em produção",
+    color: "#3b82f6",
+    tech: "React · PostgreSQL · RPC",
+  },
+];
+
+function MagneticBtn({
+  children,
+  className,
+  onClick,
+  href,
+  target,
+  rel,
+}: {
+  children: React.ReactNode;
+  className: string;
+  onClick?: () => void;
+  href?: string;
+  target?: string;
+  rel?: string;
+}) {
+  const { sx, sy, onMove, onLeave } = useMagnetic(0.38);
+
+  if (href) {
+    return (
+      <motion.a
+        href={href}
+        target={target}
+        rel={rel}
+        className={className}
+        style={{ x: sx, y: sy }}
+        onMouseMove={onMove}
+        onMouseLeave={onLeave}
+      >
+        {children}
+      </motion.a>
+    );
+  }
+  return (
+    <motion.button
+      className={className}
+      style={{ x: sx, y: sy }}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      onClick={onClick}
+    >
+      {children}
+    </motion.button>
+  );
+}
 
 export default function Home() {
   const { isDarkMode, setSelectedPage } = useContextPage();
+  const mouseRef = useRef<{ x: number; y: number }>({ x: -9999, y: -9999 });
+
+  const base = isDarkMode ? "text-light" : "text-dark";
+  const mutedText = isDarkMode ? "text-muted" : "text-zinc-500";
+  const dimText = isDarkMode ? "text-muted-dark" : "text-zinc-400";
+  const divider = isDarkMode ? "border-border" : "border-zinc-200";
+  const btnSecondary = isDarkMode
+    ? "border border-border hover:border-accent-light text-light hover:text-accent-light"
+    : "border border-zinc-300 hover:border-accent text-dark hover:text-accent";
+  const cardBg = isDarkMode
+    ? "bg-card border-border hover:border-zinc-600"
+    : "bg-white border-zinc-200 hover:border-zinc-400";
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    mouseRef.current = { x: e.clientX, y: e.clientY };
+  };
+  const handleMouseLeave = () => {
+    mouseRef.current = { x: -9999, y: -9999 };
+  };
+
   return (
     <>
-      <section className="flex flex-col md:flex-row items-center justify-between min-h-[90vh] px-4 md:px-32 relative mb-5 sm-mb-0">
-        <div className="bg-[url('https://f005.backblazeb2.com/file/mvr-portfolio/background.png')] bg-center bg-no-repeat flex items-center justify-center w-[20rem] h-[20rem] m-auto mt-10 md:m-0 xl:w-[35rem] xl:h-[35rem] md:w-[30rem] md:h-[rem] border xl:ml-16 xl:mt-[-10rem] rounded-[50%] relative">
-          <img
-            src="https://f005.backblazeb2.com/file/mvr-portfolio/profile.png"
-            alt="profile"
-            className="w-full object-fill rounded-[50%]"
-          />
-        </div>
-        <div className="m-auto mt-10 md:m-0 w-full md:w-[80%] sm:w-[60%] lg:w-[50%] h-1/2 flex flex-col md:mt-[-5rem] items-center">
-          <strong className="w-full md:w-9/12 text-4xl md:text-6xl text-center sm:text-justify mb-5">
-            Transformando visão em realidade com código.
-          </strong>
-          <span className="w-full md:w-9/12 mt-5 text-center sm:text-justify text-2xl">
-            Como um habilidoso desenvolvedor full-stack, sou dedicado a
-            transformar ideias em inovadoras aplicações web. Explore meus
-            projetos e artigos mais recentes, demonstrando minha expertise em
-            React.js e desenvolvimento web.
-          </span>
-          <span className="w-full  justify-center items-center md:justify-start md:items-start md:w-9/12 flex mt-5 text-2xl sm:gap-5">
-            <Link
-              to="https://docs.google.com/document/d/10aU8ROLUuQvDvtoNuJvvC8p1GKYZJQrWzwO8fJKWLjQ/edit?usp=sharing"
-              target="_blank"
-              className={`flex items-center justify-center gap-2 w-[9.5rem] sm:w-[14.5rem] lg:w-[9.5rem] md:w-[9.5rem] h-14 ${
-                isDarkMode ? " bg-white text-dark" : " bg-dark text-white"
-              } rounded-md mr-5 border`}
+      <section
+        className={`relative flex flex-col h-[calc(100vh-6rem)] px-6 md:px-16 xl:px-32 ${base} overflow-hidden`}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        {/* Particle background */}
+        <ParticleCanvas isDarkMode={isDarkMode} mouseRef={mouseRef} />
+
+        {/* Content above canvas */}
+        <div className="relative z-10 flex flex-col justify-center flex-1 py-10 max-w-4xl">
+
+          <p className={`text-xs font-mono font-medium mb-8 tracking-widest uppercase ${dimText}`}>
+            Engenheiro de Software Sênior
+          </p>
+
+          <h1 className="text-5xl sm:text-6xl xl:text-7xl font-black leading-[1.05] mb-6 tracking-tight whitespace-nowrap">
+            Marcus{" "}
+            <span className={isDarkMode ? "text-accent-light" : "text-accent"}>
+              Roza.
+            </span>
+          </h1>
+
+          <p className={`text-xl sm:text-2xl leading-relaxed mb-3 max-w-2xl ${mutedText}`}>
+            Construo SaaS do zero — arquitetura, backend,
+            frontend e deploy em produção.
+          </p>
+
+          <p className={`font-mono text-sm mb-8 flex flex-wrap gap-x-2 gap-y-1 ${dimText}`}>
+            <span>Clarke Energy</span>
+            <span>·</span>
+            <span>Rio de Janeiro, Brasil</span>
+            <span>·</span>
+            <span>3+ anos</span>
+          </p>
+
+          <div className="flex items-center gap-3 flex-wrap mb-8">
+            <MagneticBtn
+              onClick={() => setSelectedPage("Projetos")}
+              className="px-6 py-3 bg-accent hover:bg-accent-light text-white rounded-lg font-semibold text-sm transition-colors duration-150 cursor-pointer"
             >
-              <p>Curriculo</p>
-              <img
-                className="w-8 h-8"
-                src={isDarkMode ? iconDark : icon}
-                alt="icon"
-              />
-            </Link>
+              Ver projetos
+            </MagneticBtn>
+            <MagneticBtn
+              href="https://docs.google.com/document/d/10aU8ROLUuQvDvtoNuJvvC8p1GKYZJQrWzwO8fJKWLjQ/edit?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
+              className={`inline-flex items-center gap-1.5 px-6 py-3 rounded-lg font-semibold text-sm transition-colors duration-150 ${btnSecondary}`}
+            >
+              Currículo
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 17L17 7M17 7H7M17 7v10" />
+              </svg>
+            </MagneticBtn>
+          </div>
+
+          <div className={`flex items-center gap-6 ${dimText}`}>
+            {[
+              { label: "GitHub", href: "https://github.com/marvindev2022" },
+              { label: "LinkedIn", href: "https://linkedin.com/in/marcus-roza" },
+              { label: "WhatsApp", href: "https://wa.me/5521993342879" },
+            ].map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                className={`text-sm font-medium transition-colors duration-150 ${isDarkMode ? "hover:text-light" : "hover:text-dark"}`}
+              >
+                {label}
+              </a>
+            ))}
             <button
               onClick={() => setSelectedPage("Contact")}
-              className="flex items-center justify-center text-center w-[9.5rem] sm:w-[14.5rem] lg:w-[9.5rem] md:w-[9.5rem] h-14 underline  bg-none rounded-md"
+              className={`text-sm font-medium transition-colors duration-150 ${isDarkMode ? "hover:text-light" : "hover:text-dark"} cursor-pointer`}
             >
-              Contato
+              Email
             </button>
-          </span>
+          </div>
         </div>
+
+        {/* Divider */}
+        <div className={`relative z-10 border-t ${divider}`} />
+
+        {/* Stats bar */}
+        <div className={`relative z-10 flex flex-wrap gap-8 py-4 ${dimText}`}>
+          {[
+            { value: "3", label: "SaaS em produção" },
+            { value: "3+", label: "anos na Clarke Energy" },
+            { value: "6+", label: "projetos entregues" },
+          ].map(({ value, label }) => (
+            <div key={label} className="flex items-baseline gap-2">
+              <span className={`text-2xl font-black tracking-tight ${isDarkMode ? "text-light" : "text-dark"}`}>{value}</span>
+              <span className="text-xs font-mono">{label}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Divider */}
+        <div className={`relative z-10 border-t ${divider}`} />
+
+        {/* Featured projects */}
+        <div className="relative z-10 py-5 pb-8">
+          <p className={`text-xs font-mono uppercase tracking-widest mb-5 ${dimText}`}>
+            Projetos em destaque
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {FEATURED.map((p) => (
+              <motion.button
+                key={p.name}
+                onClick={() => setSelectedPage("Projetos")}
+                className={`text-left rounded-xl border p-4 transition-all duration-150 ${cardBg} group cursor-pointer`}
+                style={{ borderLeft: `2px solid ${p.color}` }}
+                whileHover={{ y: -3, transition: { type: "spring", stiffness: 400, damping: 20 } }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm font-bold">{p.name}</span>
+                  <span
+                    className="inline-flex items-center gap-1 text-[10px] font-mono px-1.5 py-0.5 rounded"
+                    style={{ color: p.color, background: `${p.color}18` }}
+                  >
+                    <span className="w-1 h-1 rounded-full" style={{ background: p.color }} />
+                    {p.badge}
+                  </span>
+                </div>
+                <p className={`text-xs mb-2 ${mutedText}`}>{p.sub}</p>
+                <p className={`text-[11px] font-mono ${dimText}`}>
+                  {p.tech}
+                </p>
+              </motion.button>
+            ))}
+          </div>
+        </div>
+
       </section>
       <Footer active={true} />
     </>

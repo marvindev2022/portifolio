@@ -28,7 +28,7 @@ export default function NavDialog() {
       </Link>
       <Link
         target="_blank"
-        to="https://api.whatsapp.com/send?phone=5521964642376"
+        to="https://api.whatsapp.com/send?phone=5521993342879"
       >
         <img
           className="cursor-pointer w-8 h-8"

@@ -2,33 +2,26 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import url("react-toastify/dist/ReactToastify.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lobster&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: Fira sans, sans-serif;
-}
-.dark {
-  background-color: #1b1b1b;
-  color: #fff;
-}
-.light {
-  background-color: #fff;
-  color: #1b1b1b;
-}
-strong {
-  font-family: Lobster, cursive;
-  font-weight: 400;
-}
-b {
-  font-family: Fira sans;
-  font-weight: 400;
 }
 
 body {
   overflow-x: hidden;
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.dark {
+  background-color: #09090b;
+  color: #fafafa;
+}
+
+.light {
+  background-color: #fafafa;
+  color: #09090b;
 }

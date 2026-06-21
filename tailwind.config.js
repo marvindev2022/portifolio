@@ -3,12 +3,6 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-
-      backgroundImage: {
-        'gradient-radial': 'repeating-radial-gradient(hsla(0,0%,0%,.5) 0.125rem, #ffffff 0.5rem, #ffffff 6.25rem)',
-        'gradient-radial-dark': 'repeating-radial-gradient(hsla(0,0%,100%,.5) 0.125rem, #1b1b1b 0.5rem, #1b1b1b 6.25rem)',
-      },
-     
       screens: {
         sm: "40rem",
         md: "48rem",
@@ -16,27 +10,27 @@ export default {
         xl: "80rem",
         hd: "90.01rem",
       },
-      
-
       colors: {
-       dark: "#1b1b1b", 
-       light: "#FFFFFF",
-
-      },
-      boxShadow: {
-        around:
-          "0 3.7288rem 11.5284rem #00000015, 0 1.5578rem 4.8163rem #0000001e, 0 .8329rem 2.575rem #00000025, 0 .4669rem 1.4435rem #0000002c, 0 .248rem .7667rem #00000035, 0 .1032rem .319rem #0000004a;",
-        modal:
-          "0rem 0rem 0rem 0rem rgba(0, 0, 0, 0.10), 0rem .25rem .5rem 0rem rgba(0, 0, 0, 0.10), 0rem .9375rem .9375rem 0rem rgba(0, 0, 0, 0.09), 0rem 2.0625rem 1.25rem 0rem rgba(0, 0, 0, 0.05), 0rem 3.6875rem 1.5rem 0rem rgba(0, 0, 0, 0.01), 0rem 5.75rem 1.625rem 0rem rgba(0, 0, 0, 0.00);",
+        dark: "#09090b",
+        light: "#fafafa",
+        surface: "#111113",
+        card: "#18181b",
+        border: "#27272a",
+        accent: "#3b82f6",
+        "accent-light": "#60a5fa",
+        muted: "#a1a1aa",
+        "muted-dark": "#52525b",
+        live: "#22c55e",
       },
       fontFamily: {
-        main: ["Lobster"],
-        special: ["Fira Sans"],
-        secondary: ["Inter"],
-        assinature:["Great Vibes"]
+        sans: ["Inter", "system-ui", "sans-serif"],
+        mono: ['"JetBrains Mono"', "monospace"],
+      },
+      boxShadow: {
+        card: "0 0 0 1px #27272a",
+        glow: "0 0 24px rgba(59,130,246,0.12)",
       },
     },
-    
   },
   purge: ["./src/**/*.html", "./src/**/*.jsx", "./src/**/*.tsx"],
   plugins: [],
