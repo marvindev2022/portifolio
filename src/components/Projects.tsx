@@ -17,6 +17,8 @@ interface Project {
   accentColor: string;
   images: string[];
   imageAlts: string[];
+  liveUrl?: string;
+  githubUrl?: string;
 }
 
 const PROJECTS: Project[] = [
@@ -34,6 +36,8 @@ const PROJECTS: Project[] = [
       "Tela financeiro — MRR, planos ativos e contratos",
       "Dashboard de alunos e treinos",
     ],
+    liveUrl: "https://gym-git-main-gymapp-81c43e41.vercel.app/dashboard",
+    githubUrl: "https://github.com/marvindev2022",
   },
   {
     name: "PDV Auto-Peças",
@@ -46,6 +50,8 @@ const PROJECTS: Project[] = [
     accentColor: "#3b82f6",
     images: [pdvImg],
     imageAlts: ["Dashboard com métricas de receita e vendas"],
+    liveUrl: "https://pdv-autopecas-web-git-main-gymapp-81c43e41.vercel.app/sales",
+    githubUrl: "https://github.com/marvindev2022",
   },
   {
     name: "Oficina Mecânica",
@@ -61,6 +67,8 @@ const PROJECTS: Project[] = [
       "Dashboard — OS por status, receita e ordens recentes",
       "Lista de ordens de serviço com filtros por status",
     ],
+    liveUrl: "https://quediesel.vercel.app/dashboard",
+    githubUrl: "https://github.com/marvindev2022",
   },
   {
     name: "Clarke Energy",
@@ -209,6 +217,46 @@ function ProjectCard({
             </span>
           ))}
         </div>
+
+        {(project.liveUrl || project.githubUrl) && (
+          <div className="flex items-center gap-2 pt-2 border-t" style={{ borderColor: isDarkMode ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)" }}>
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors duration-150"
+                style={{
+                  background: `${project.accentColor}15`,
+                  color: project.accentColor,
+                  border: `1px solid ${project.accentColor}30`,
+                }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                Ver demo
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M7 17L17 7M17 7H7M17 7v10" />
+                </svg>
+              </a>
+            )}
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors duration-150 ${isDarkMode ? "text-muted hover:text-light border border-border hover:border-zinc-500" : "text-zinc-500 hover:text-dark border border-zinc-200 hover:border-zinc-400"}`}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                  <path d="M9 18c-4.51 2-5-2-7-2" />
+                </svg>
+                GitHub
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </article>
   );
