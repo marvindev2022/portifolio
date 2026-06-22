@@ -101,7 +101,7 @@ export default function Home() {
   return (
     <>
       <section
-        className={`relative flex flex-col h-[calc(100vh-6rem)] px-6 md:px-16 xl:px-32 ${base} overflow-hidden`}
+        className={`relative flex flex-col h-fit px-6 md:px-16 xl:px-32 ${base} overflow-hidden`}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
@@ -109,13 +109,13 @@ export default function Home() {
         <ParticleCanvas isDarkMode={isDarkMode} mouseRef={mouseRef} />
 
         {/* Content above canvas */}
-        <div className="relative z-10 flex flex-col justify-center flex-1 py-10 max-w-4xl">
+        <div className="relative z-10 flex flex-col justify-center flex-1 py-6 max-w-4xl">
 
-          <p className={`text-xs font-mono font-medium mb-8 tracking-widest uppercase ${dimText}`}>
+          <p className={`text-xs font-mono font-medium mb-5 tracking-widest uppercase ${dimText}`}>
             Engenheiro de Software Sênior
           </p>
 
-          <h1 className="text-5xl sm:text-6xl xl:text-7xl font-black leading-[1.05] mb-6 tracking-tight whitespace-nowrap">
+          <h1 className="text-5xl sm:text-6xl xl:text-7xl font-black leading-[1.05] mb-4 tracking-tight whitespace-nowrap">
             Marcus{" "}
             <span style={{
               color: isDarkMode ? "#22d3ee" : "#3b82f6",
@@ -125,12 +125,12 @@ export default function Home() {
             </span>
           </h1>
 
-          <p className={`text-xl sm:text-2xl leading-relaxed mb-3 max-w-2xl ${mutedText}`}>
+          <p className={`text-xl sm:text-2xl leading-relaxed mb-2 max-w-2xl ${mutedText}`}>
             Construo SaaS do zero — arquitetura, backend,
             frontend e deploy em produção.
           </p>
 
-          <p className={`font-mono text-sm mb-8 flex flex-wrap gap-x-2 gap-y-1 ${dimText}`}>
+          <p className={`font-mono text-sm mb-5 flex flex-wrap gap-x-2 gap-y-1 ${dimText}`}>
             <span>Clarke Energy</span>
             <span>·</span>
             <span>Rio de Janeiro, Brasil</span>
@@ -138,7 +138,7 @@ export default function Home() {
             <span>3+ anos</span>
           </p>
 
-          <div className="flex items-center gap-3 flex-wrap mb-8">
+          <div className="flex items-center gap-3 flex-wrap mb-5">
             <MagneticBtn
               onClick={() => setSelectedPage("Projetos")}
               className="px-6 py-3 text-white rounded-lg font-semibold text-sm transition-all duration-150 cursor-pointer"
@@ -191,7 +191,7 @@ export default function Home() {
         <div className={`relative z-10 border-t ${divider}`} />
 
         {/* Stats bar */}
-        <div className={`relative z-10 flex flex-wrap gap-8 py-4 ${dimText}`}>
+        <div className={`relative z-10 flex flex-wrap gap-8 py-2 ${dimText}`}>
           {[
             { value: "3", label: "SaaS em produção" },
             { value: "3+", label: "anos na Clarke Energy" },
@@ -208,8 +208,8 @@ export default function Home() {
         <div className={`relative z-10 border-t ${divider}`} />
 
         {/* Featured projects */}
-        <div className="relative z-10 py-5 pb-8">
-          <p className={`text-xs font-mono uppercase tracking-widest mb-5 ${dimText}`}>
+        <div className="relative z-10 py-3 pb-4">
+          <p className={`text-xs font-mono uppercase tracking-widest mb-3 ${dimText}`}>
             Projetos em destaque
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
