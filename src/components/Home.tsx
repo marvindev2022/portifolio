@@ -112,7 +112,7 @@ export default function Home() {
         <div className="relative z-10 flex flex-col justify-center flex-1 py-6 max-w-4xl">
 
           <p className={`text-xs font-mono font-medium mb-5 tracking-widest uppercase ${dimText}`}>
-            Engenheiro de Software Sênior
+            Engenheiro de Software
           </p>
 
           <h1 className="text-5xl sm:text-6xl xl:text-7xl font-black leading-[1.05] mb-4 tracking-tight whitespace-nowrap">
