@@ -65,14 +65,6 @@ const Header = () => {
         </ul>
       </nav>
 
-      <span
-        className={`font-mono text-sm font-bold select-none ${
-          isDarkMode ? "text-accent-light" : "text-accent"
-        }`}
-      >
-        {"<MR />"}
-      </span>
-
       <span className="hidden lg:block">
         <Nav dialog={false} />
       </span>
