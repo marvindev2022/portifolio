@@ -71,7 +71,7 @@ const PROJECTS: Project[] = [
     githubUrl: "https://github.com/marvindev2022",
   },
   {
-    name: "Clarke Energy",
+    name: "Plataforma de Energia B2B",
     tagline: "Plataforma de energia no mercado livre",
     description:
       "Subgraph GraphQL em Apollo Federation, workers Celery em Kubernetes (GKE), microserviços Python com FastAPI e Flask, e frontends React integrados a dezenas de serviços de energia.",

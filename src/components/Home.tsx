@@ -131,7 +131,7 @@ export default function Home() {
           </p>
 
           <p className={`font-mono text-sm mb-5 flex flex-wrap gap-x-2 gap-y-1 ${dimText}`}>
-            <span>Clarke Energy</span>
+            <span>Setor de energia</span>
             <span>·</span>
             <span>Rio de Janeiro, Brasil</span>
             <span>·</span>
@@ -194,7 +194,7 @@ export default function Home() {
         <div className={`relative z-10 flex flex-wrap gap-8 py-2 ${dimText}`}>
           {[
             { value: "3", label: "SaaS em produção" },
-            { value: "3+", label: "anos na Clarke Energy" },
+            { value: "3+", label: "anos de experiência" },
             { value: "6+", label: "projetos entregues" },
           ].map(({ value, label }) => (
             <div key={label} className="flex items-baseline gap-2">

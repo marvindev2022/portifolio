@@ -5,7 +5,7 @@ import Skills from "./Skills";
 import ParticleCanvas from "./ParticleCanvas";
 
 const EXPERIENCE = {
-  company: "Clarke Energy",
+  company: "Plataforma de energia B2B",
   role: "Engenheiro de Software",
   period: "2022 – presente",
   highlights: [
@@ -23,7 +23,7 @@ const PERSONAL = [
 ];
 
 const STATS = [
-  { value: "3+", label: "anos na Clarke" },
+  { value: "3+", label: "anos de experiência" },
   { value: "3", label: "SaaS como produto" },
   { value: "6+", label: "projetos em prod." },
   { value: "2", label: "clientes na Oficina" },
@@ -69,9 +69,9 @@ export default function About() {
 
             <div className={`space-y-3 text-sm leading-relaxed ${mutedText} mb-6`}>
               <p>
-                Trabalho na{" "}
-                <span className={isDarkMode ? "text-light font-medium" : "text-dark font-medium"}>Clarke Energy</span>
-                {" "}— maior plataforma de migração para o mercado livre de energia do Brasil — construindo a infraestrutura de software para análises tarifárias, relatórios e contratos.
+                Trabalho em uma{" "}
+                <span className={isDarkMode ? "text-light font-medium" : "text-dark font-medium"}>plataforma SaaS B2B</span>
+                {" "}de migração para o mercado livre de energia do Brasil, construindo a infraestrutura de software para análises tarifárias, relatórios e contratos.
               </p>
               <p>
                 Meu diferencial é o{" "}
@@ -79,7 +79,7 @@ export default function About() {
                 : do problema ao código em produção — arquitetura, implementação, deploy e monitoração.
               </p>
               <p>
-                Fora da Clarke, construo SaaS como produto real — com clientes, receita e roadmap.
+                Fora do trabalho, construo SaaS como produto real — com clientes, receita e roadmap.
               </p>
             </div>
 
