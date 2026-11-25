@@ -36,7 +36,7 @@ const PROJECTS: Project[] = [
       "Tela financeiro — MRR, planos ativos e contratos",
       "Dashboard de alunos e treinos",
     ],
-    liveUrl: "https://gym-git-main-gymapp-81c43e41.vercel.app/dashboard",
+    liveUrl: "https://gym-orpin-ten.vercel.app/dashboard",
     githubUrl: "https://github.com/marvindev2022",
   },
   {
@@ -50,7 +50,7 @@ const PROJECTS: Project[] = [
     accentColor: "#3b82f6",
     images: [pdvImg],
     imageAlts: ["Dashboard com métricas de receita e vendas"],
-    liveUrl: "https://pdv-autopecas-web-git-main-gymapp-81c43e41.vercel.app/sales",
+    liveUrl: "https://pdv-autopecas-web.vercel.app/sales",
     githubUrl: "https://github.com/marvindev2022",
   },
   {
@@ -67,8 +67,8 @@ const PROJECTS: Project[] = [
       "Dashboard — OS por status, receita e ordens recentes",
       "Lista de ordens de serviço com filtros por status",
     ],
-    liveUrl: "https://quediesel.vercel.app/dashboard",
-    githubUrl: "https://github.com/marvindev2022",
+    liveUrl: "https://felpdiesel.vercel.app/dashboard",
+    githubUrl: "https://github.com/marvindev2022/felpdiesel",
   },
   {
     name: "SaaS B2B",
