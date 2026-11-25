@@ -71,10 +71,10 @@ const PROJECTS: Project[] = [
     githubUrl: "https://github.com/marvindev2022",
   },
   {
-    name: "Plataforma de Energia B2B",
-    tagline: "Plataforma de energia no mercado livre",
+    name: "SaaS B2B",
+    tagline: "Plataforma B2B em produção",
     description:
-      "Subgraph GraphQL em Apollo Federation, workers Celery em Kubernetes (GKE), microserviços Python com FastAPI e Flask, e frontends React integrados a dezenas de serviços de energia.",
+      "Subgraph GraphQL em Apollo Federation, workers Celery em Kubernetes (GKE), microserviços Python com FastAPI e Flask, e frontends React integrados a dezenas de serviços.",
     tags: ["GraphQL Federation", "Python", "FastAPI", "Kubernetes", "Celery", "React"],
     badge: "Profissional",
     badgeType: "professional",

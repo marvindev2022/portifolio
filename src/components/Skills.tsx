@@ -19,17 +19,23 @@ const SKILL_GROUPS = [
   },
   {
     label: "Data & Infra",
-    skills: ["PostgreSQL", "Supabase", "Docker", "Kubernetes", "GKE"],
+    skills: ["PostgreSQL", "MongoDB", "Supabase", "Docker", "Kubernetes", "GKE"],
   },
   {
     label: "Tooling",
     skills: [
       "Turborepo",
       "Apollo Federation",
+      "Auth0",
+      "Sentry",
       "Vercel",
       "pnpm",
       "Git",
     ],
+  },
+  {
+    label: "IA & Qualidade",
+    skills: ["Anthropic API", "Tool Use", "Gemini", "OCR", "Jest", "Cypress"],
   },
 ];
 
@@ -50,7 +56,7 @@ export default function Skills() {
         Stack
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-8">
         {SKILL_GROUPS.map((group) => (
           <div key={group.label}>
             <p

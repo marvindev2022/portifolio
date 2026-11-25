@@ -5,12 +5,12 @@ import Skills from "./Skills";
 import ParticleCanvas from "./ParticleCanvas";
 
 const EXPERIENCE = {
-  company: "Plataforma de energia B2B",
+  company: "SaaS B2B",
   role: "Engenheiro de Software",
-  period: "2022 – presente",
+  period: "2023 – presente",
   highlights: [
     "Subgraphs GraphQL em Apollo Federation v2 — FastAPI + Flask",
-    "Workers Celery em Kubernetes (GKE) — projeções tarifárias ACL",
+    "Workers Celery em Kubernetes (GKE) — projeções e cálculos em larga escala",
     "Frontends React 18 + TypeScript integrados a ~20 microserviços",
     "Calculadora de energia + relatórios regulatórios em produção",
   ],
@@ -23,9 +23,9 @@ const PERSONAL = [
 ];
 
 const STATS = [
-  { value: "3+", label: "anos de experiência" },
+  { value: "1.975", label: "contribuições no GitHub (12 meses)" },
+  { value: "85", label: "repositórios" },
   { value: "3", label: "SaaS como produto" },
-  { value: "6+", label: "projetos em prod." },
   { value: "2", label: "clientes na Oficina" },
 ];
 
@@ -69,9 +69,9 @@ export default function About() {
 
             <div className={`space-y-3 text-sm leading-relaxed ${mutedText} mb-6`}>
               <p>
-                Trabalho em uma{" "}
+                Atuo em um{" "}
                 <span className={isDarkMode ? "text-light font-medium" : "text-dark font-medium"}>plataforma SaaS B2B</span>
-                {" "}de migração para o mercado livre de energia do Brasil, construindo a infraestrutura de software para análises tarifárias, relatórios e contratos.
+                {" "}em produção, construindo backend, frontend e infraestrutura: APIs GraphQL, processamento assíncrono, relatórios e integrações.
               </p>
               <p>
                 Meu diferencial é o{" "}
@@ -138,8 +138,8 @@ export default function About() {
               <div className="flex flex-wrap gap-1.5">
                 {[
                   "React 18", "TypeScript", "Python", "FastAPI", "GraphQL",
-                  "Supabase", "PostgreSQL", "Celery", "Kubernetes", "Docker",
-                  "Turborepo", "Vite", "Tailwind CSS", "Apollo Federation",
+                  "Apollo Federation", "Anthropic API", "PostgreSQL", "Celery",
+                  "Redis", "Kubernetes", "Docker", "Supabase", "Vite", "Tailwind CSS",
                 ].map((tag) => (
                   <span
                     key={tag}

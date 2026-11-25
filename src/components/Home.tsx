@@ -131,11 +131,11 @@ export default function Home() {
           </p>
 
           <p className={`font-mono text-sm mb-5 flex flex-wrap gap-x-2 gap-y-1 ${dimText}`}>
-            <span>Setor de energia</span>
+            <span>Full Stack</span>
             <span>·</span>
             <span>Rio de Janeiro, Brasil</span>
             <span>·</span>
-            <span>3+ anos</span>
+            <span>TypeScript / Python</span>
           </p>
 
           <div className="flex items-center gap-3 flex-wrap mb-5">
@@ -194,8 +194,8 @@ export default function Home() {
         <div className={`relative z-10 flex flex-wrap gap-8 py-2 ${dimText}`}>
           {[
             { value: "3", label: "SaaS em produção" },
-            { value: "3+", label: "anos de experiência" },
-            { value: "6+", label: "projetos entregues" },
+            { value: "1.975", label: "contribuições no GitHub (12 meses)" },
+            { value: "85", label: "repositórios" },
           ].map(({ value, label }) => (
             <div key={label} className="flex items-baseline gap-2">
               <span className={`text-2xl font-black tracking-tight ${isDarkMode ? "text-light" : "text-dark"}`}>{value}</span>
