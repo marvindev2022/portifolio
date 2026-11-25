@@ -23,10 +23,10 @@ const PERSONAL = [
 ];
 
 const STATS = [
+  { value: "100%", label: "assertividade no OCR com LLM (antes: 50%)" },
+  { value: "~20", label: "microsserviços integrados" },
   { value: "1.975", label: "contribuições no GitHub (12 meses)" },
-  { value: "85", label: "repositórios" },
-  { value: "3", label: "SaaS como produto" },
-  { value: "2", label: "clientes na Oficina" },
+  { value: "11", label: "apps publicados em produção" },
 ];
 
 export default function About() {
@@ -137,8 +137,8 @@ export default function About() {
               <p className={`text-xs font-mono uppercase tracking-widest mb-3 ${dimText}`}>Stack principal</p>
               <div className="flex flex-wrap gap-1.5">
                 {[
-                  "React 18", "TypeScript", "Python", "FastAPI", "GraphQL",
-                  "Apollo Federation", "Anthropic API", "PostgreSQL", "Celery",
+                  "TypeScript", "React 18", "Python", "Anthropic API", "RAG / MCP", "FastAPI",
+                  "GraphQL", "Apollo Federation", "PostgreSQL", "Celery",
                   "Redis", "Kubernetes", "Docker", "Supabase", "Vite", "Tailwind CSS",
                 ].map((tag) => (
                   <span

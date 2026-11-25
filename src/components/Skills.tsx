@@ -34,8 +34,8 @@ const SKILL_GROUPS = [
     ],
   },
   {
-    label: "IA & Qualidade",
-    skills: ["Anthropic API", "Tool Use", "Gemini", "OCR", "Jest", "Cypress"],
+    label: "IA & Testes",
+    skills: ["Anthropic API", "Tool Use", "RAG (pgvector)", "MCP", "Agentes multi-agente", "Claude Code", "Ollama", "Gemini", "Jest", "Cypress"],
   },
 ];
 

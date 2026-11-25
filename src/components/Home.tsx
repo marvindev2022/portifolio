@@ -193,9 +193,10 @@ export default function Home() {
         {/* Stats bar */}
         <div className={`relative z-10 flex flex-wrap gap-8 py-2 ${dimText}`}>
           {[
-            { value: "3", label: "SaaS em produção" },
+            { value: "100%", label: "assertividade no OCR com LLM" },
+            { value: "~20", label: "microsserviços integrados" },
             { value: "1.975", label: "contribuições no GitHub (12 meses)" },
-            { value: "85", label: "repositórios" },
+            { value: "11", label: "apps publicados em produção" },
           ].map(({ value, label }) => (
             <div key={label} className="flex items-baseline gap-2">
               <span className={`text-2xl font-black tracking-tight ${isDarkMode ? "text-light" : "text-dark"}`}>{value}</span>
