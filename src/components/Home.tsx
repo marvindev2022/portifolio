@@ -193,7 +193,7 @@ export default function Home() {
         {/* Stats bar */}
         <div className={`relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-4 py-2 ${dimText}`}>
           {[
-            { value: "10/10", label: "faturas via OCR com LLM (benchmark interno)" },
+            { value: "10/10", label: "layouts de fatura via OCR com LLM (benchmark interno)" },
             { value: "~20", label: "microsserviços integrados" },
             { value: "1.975", label: "contribuições (12 meses)" },
             { value: "11", label: "apps publicados" },

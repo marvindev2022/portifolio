@@ -23,7 +23,7 @@ const PERSONAL = [
 ];
 
 const STATS = [
-  { value: "10/10", label: "faturas lidas por OCR com LLM (benchmark interno; antes 5/10)" },
+  { value: "10/10", label: "layouts de fatura diferentes lidos por OCR com LLM (benchmark interno; antes 5/10)" },
   { value: "~20", label: "microsserviços integrados" },
   { value: "1.975", label: "contribuições no GitHub (12 meses)" },
   { value: "11", label: "apps publicados em produção" },
