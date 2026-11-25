@@ -191,14 +191,14 @@ export default function Home() {
         <div className={`relative z-10 border-t ${divider}`} />
 
         {/* Stats bar */}
-        <div className={`relative z-10 flex flex-wrap gap-8 py-2 ${dimText}`}>
+        <div className={`relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-4 py-2 ${dimText}`}>
           {[
-            { value: "100%", label: "assertividade no OCR com LLM" },
+            { value: "10/10", label: "faturas via OCR com LLM (benchmark interno)" },
             { value: "~20", label: "microsserviços integrados" },
-            { value: "1.975", label: "contribuições no GitHub (12 meses)" },
-            { value: "11", label: "apps publicados em produção" },
+            { value: "1.975", label: "contribuições (12 meses)" },
+            { value: "11", label: "apps publicados" },
           ].map(({ value, label }) => (
-            <div key={label} className="flex items-baseline gap-2">
+            <div key={label} className="flex flex-col gap-0.5">
               <span className={`text-2xl font-black tracking-tight ${isDarkMode ? "text-light" : "text-dark"}`}>{value}</span>
               <span className="text-xs font-mono">{label}</span>
             </div>

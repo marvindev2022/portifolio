@@ -23,7 +23,7 @@ const PERSONAL = [
 ];
 
 const STATS = [
-  { value: "100%", label: "assertividade no OCR com LLM (antes: 50%)" },
+  { value: "10/10", label: "faturas lidas por OCR com LLM (benchmark interno; antes 5/10)" },
   { value: "~20", label: "microsserviços integrados" },
   { value: "1.975", label: "contribuições no GitHub (12 meses)" },
   { value: "11", label: "apps publicados em produção" },
@@ -69,7 +69,7 @@ export default function About() {
 
             <div className={`space-y-3 text-sm leading-relaxed ${mutedText} mb-6`}>
               <p>
-                Atuo em um{" "}
+                Atuo em uma{" "}
                 <span className={isDarkMode ? "text-light font-medium" : "text-dark font-medium"}>plataforma SaaS B2B</span>
                 {" "}em produção, construindo backend, frontend e infraestrutura: APIs GraphQL, processamento assíncrono, relatórios e integrações.
               </p>
