@@ -12,7 +12,7 @@ const EXPERIENCE = {
     "Subgraphs GraphQL em Apollo Federation v2 — FastAPI + Flask",
     "Workers Celery em Kubernetes (GKE) — projeções e cálculos em larga escala",
     "Frontends React 18 + TypeScript integrados a ~20 microserviços",
-    "Calculadora de energia + relatórios regulatórios em produção",
+    "Calculadoras + relatórios regulatórios em produção",
   ],
 };
 
