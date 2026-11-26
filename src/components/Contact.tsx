@@ -6,8 +6,8 @@ import MagnetGridCanvas from "./MagnetGridCanvas";
 const LINKS = [
   {
     label: "Email",
-    value: "mavirolero@gmail.com",
-    href: "mailto:mavirolero@gmail.com",
+    value: "contato@marcusroza.tech",
+    href: "mailto:contato@marcusroza.tech",
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect width="20" height="16" x="2" y="4" rx="2" />

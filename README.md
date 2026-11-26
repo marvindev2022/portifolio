@@ -2,7 +2,7 @@
 
 Portfólio de **Marcus Roza**, Engenheiro de Software Full Stack (TypeScript, Python e IA aplicada).
 
-🌐 **Online:** https://mvr-portfolio.netlify.app
+🌐 **Online:** https://marcusroza.tech
 
 ## O que tem
 

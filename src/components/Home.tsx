@@ -4,6 +4,7 @@ import { useContextPage } from "../context";
 import Footer from "./Footer";
 import ParticleCanvas from "./ParticleCanvas";
 import { useMagnetic } from "../hooks/useMagnetic";
+import { useGithub } from "../hooks/useGithub";
 
 const FEATURED = [
   {
@@ -78,6 +79,7 @@ function MagneticBtn({
 
 export default function Home() {
   const { isDarkMode, setSelectedPage } = useContextPage();
+  const gh = useGithub();
   const mouseRef = useRef<{ x: number; y: number }>({ x: -9999, y: -9999 });
 
   const base = isDarkMode ? "text-light" : "text-dark";
@@ -195,7 +197,7 @@ export default function Home() {
           {[
             { value: "10/10", label: "layouts de fatura via OCR com LLM (benchmark interno)" },
             { value: "~20", label: "microsserviços integrados" },
-            { value: "1.975", label: "contribuições (12 meses)" },
+            { value: gh.contributions?.toLocaleString("pt-BR") ?? "1.975", label: "contribuições no GitHub (12 meses)" },
             { value: "11", label: "apps publicados" },
           ].map(({ value, label }) => (
             <div key={label} className="flex flex-col gap-0.5">
@@ -204,6 +206,13 @@ export default function Home() {
             </div>
           ))}
         </div>
+
+        {gh.lastCommit && (
+          <p className={`relative z-10 pb-3 text-xs font-mono truncate ${dimText}`}>
+            <span className="inline-block w-1.5 h-1.5 mr-2 rounded-full bg-emerald-400" />
+            Último commit · {gh.lastCommit.repo} · {gh.lastCommit.message} · {new Date(gh.lastCommit.date).toLocaleDateString("pt-BR", { day: "numeric", month: "short" })}
+          </p>
+        )}
 
         {/* Divider */}
         <div className={`relative z-10 border-t ${divider}`} />

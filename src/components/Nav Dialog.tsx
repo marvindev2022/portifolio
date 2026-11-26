@@ -19,7 +19,7 @@ export default function NavDialog() {
           alt="linkedin"
         />
       </Link>
-      <Link target="_blank" to="mailto:mavirolero@gmail.com">
+      <Link target="_blank" to="mailto:contato@marcusroza.tech">
         <img
           className="cursor-pointer w-8 h-8"
           src={assetsDialog.gmail}

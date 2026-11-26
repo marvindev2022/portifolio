@@ -37,7 +37,7 @@ const PROJECTS: Project[] = [
       "Dashboard de alunos e treinos",
     ],
     liveUrl: "https://gym-orpin-ten.vercel.app/dashboard",
-    githubUrl: "https://github.com/marvindev2022",
+    githubUrl: "https://github.com/marvindev2022/gym",
   },
   {
     name: "PDV Auto-Peças",
@@ -51,7 +51,7 @@ const PROJECTS: Project[] = [
     images: [pdvImg],
     imageAlts: ["Dashboard com métricas de receita e vendas"],
     liveUrl: "https://pdv-autopecas-web.vercel.app/sales",
-    githubUrl: "https://github.com/marvindev2022",
+    githubUrl: "https://github.com/marvindev2022/pdv-autopecas",
   },
   {
     name: "Oficina Mecânica",
@@ -178,15 +178,18 @@ function ProjectCard({
               background: `linear-gradient(135deg, ${project.accentColor}18 0%, ${project.accentColor}08 100%)`,
             }}
           >
-            <span
-              className="text-xs font-mono font-medium px-2 py-1 rounded"
-              style={{
-                color: project.accentColor,
-                background: `${project.accentColor}15`,
-              }}
+            <div
+              className="flex flex-wrap items-center gap-1.5 text-[11px] font-mono"
+              style={{ color: project.accentColor }}
+              aria-label="Arquitetura: React, gateway GraphQL, subgraphs Python, workers Celery no Kubernetes"
             >
-              screenshot em breve
-            </span>
+              {["React", "Gateway GraphQL", "Subgraphs Python", "Celery · GKE"].map((n, i) => (
+                <span key={n} className="flex items-center gap-1.5">
+                  {i > 0 && <span aria-hidden>→</span>}
+                  <span className="px-2 py-1 rounded" style={{ background: `${project.accentColor}15` }}>{n}</span>
+                </span>
+              ))}
+            </div>
           </div>
         )}
       </div>
